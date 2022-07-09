@@ -163,12 +163,11 @@ function Home() {
                 }
               >
                 <p className="content-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur.
+                  Raised in Lagos, Nigeria, I am a creative fullstack developer,
+                  with keen interest in exploring the artistic possibilies of
+                  web development. Thus I am constantly learning and testing the
+                  limits of web element manipulation in the pursuit of new
+                  artistic expressions.
                 </p>
               </div>
               <div
