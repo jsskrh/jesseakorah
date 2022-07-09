@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Canvas from "./Canvas";
 import Cursor from "./Cursor";
 import "./Home.css";
+import mostPlayed from "./mostPlayed";
 
 function Home() {
   const [page, setPage] = useState("home");
@@ -13,22 +14,48 @@ function Home() {
   const [copied, setCopied] = useState(false);
 
   const backgroundRef = useRef(null);
+  const pageRef = useRef(null);
 
   useEffect(() => {
     setBackgroundHeight(backgroundRef?.current.clientHeight);
     setBackgroundWidth(backgroundRef?.current.clientWidth);
-  }, []);
+    console.log(backgroundHeight);
+  }, [backgroundHeight, page]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (
+        backgroundRef?.current.clientHeight !== backgroundHeight ||
+        backgroundRef?.current.clientWidth !== backgroundWidth
+      ) {
+        setBackgroundHeight(backgroundRef?.current.clientHeight);
+        setBackgroundWidth(backgroundRef?.current.clientWidth);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
 
   const projectsRef = useRef();
 
   useEffect(() => {
     const projectsCont = projectsRef.current;
+    const maxScroll = projectsCont.clientHeight * 0.3895;
+    const pageHeight = pageRef.current.clientHeight;
+    const projectsHeight = projectsCont.clientHeight;
 
     window.addEventListener("wheel", (event) => {
-      if (pageScroll >= -720 && pageScroll <= 0 && page === "projects") {
-        /* console.log(pageScroll); */
-        setPageScroll(pageScroll - event.deltaY);
-        projectsCont.style.transform = `translate3d(0, ${pageScroll}px, 0)`;
+      if (projectsHeight > pageHeight) {
+        if (
+          pageScroll >= -maxScroll &&
+          pageScroll <= 0 &&
+          page === "projects"
+        ) {
+          setPageScroll(pageScroll - event.deltaY);
+          projectsCont.style.transform = `translate3d(0, ${pageScroll}px, 0)`;
+        }
       }
     });
   }, [page, pageScroll]);
@@ -84,7 +111,7 @@ function Home() {
         <div className="box box-left"></div>
         <div className="box box-bottom"></div>
       </div>
-      <div className="page-container">
+      <div className="page-container" ref={pageRef}>
         <div className="background" ref={backgroundRef}>
           <Canvas height={backgroundHeight} width={backgroundWidth} />
         </div>
@@ -179,7 +206,7 @@ function Home() {
                 ref={projectsRef}
               >
                 <div className="project-section">
-                  <h2 className="section-title">Design & Develop</h2>
+                  <h2 className="section-title">Develop</h2>
                   <ul className="projects-list">
                     <li>
                       <a
@@ -229,8 +256,8 @@ function Home() {
                     </li>
                   </ul>
                 </div>
-                <div className="project-section second">
-                  <h2 className="section-title">Develop</h2>
+                {/* <div className="project-section second">
+                  <h2 className="section-title">Design & Develop</h2>
                   <ul className="projects-list">
                     <li>
                       <a href="#" className="project-item">
@@ -269,7 +296,7 @@ function Home() {
                       </a>
                     </li>
                   </ul>
-                </div>
+                </div> */}
               </div>
               <div
                 className={
@@ -329,7 +356,7 @@ function Home() {
                     : "about page-content"
                 }
               >
-                <div className="text-container">Coming Soon</div>
+                <div className="music">Coming Soon</div>
               </div>
               <div
                 className={
