@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Canvas from "./Canvas";
 import Cursor from "./Cursor";
 import "./Home.css";
-import mostPlayed from "./mostPlayed";
 
 function Home() {
   const [page, setPage] = useState("home");
@@ -259,42 +258,6 @@ function Home() {
                 {/* <div className="project-section second">
                   <h2 className="section-title">Design & Develop</h2>
                   <ul className="projects-list">
-                    <li>
-                      <a href="#" className="project-item">
-                        <span className="project-info">2022 / Personal</span>
-                        <span className="project-title">Lorem ipsum dolor</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="project-item">
-                        <span className="project-info">2022 / Personal</span>
-                        <span className="project-title">Lorem ipsum dolor</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="project-item">
-                        <span className="project-info">2022 / Personal</span>
-                        <span className="project-title">Lorem ipsum dolor</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="project-item">
-                        <span className="project-info">2022 / Personal</span>
-                        <span className="project-title">Lorem ipsum dolor</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="project-item">
-                        <span className="project-info">2022 / Personal</span>
-                        <span className="project-title">Lorem ipsum dolor</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="project-item">
-                        <span className="project-info">2022 / Personal</span>
-                        <span className="project-title">Lorem ipsum dolor</span>
-                      </a>
-                    </li>
                   </ul>
                 </div> */}
               </div>
@@ -335,9 +298,9 @@ function Home() {
                   </p>
                 </div>
                 <div className="bottom">
-                  <p>Lorem ipsum dolor sit amet</p>
-                  <p>Lorem ipsum dolor sit amet</p>
-                  <p>Lorem ipsum dolor sit amet</p>
+                  <p>The things we can't</p>
+                  <p>obtain are the most</p>
+                  <p>beautiful ones</p>
                 </div>
               </div>
               <div
@@ -356,7 +319,12 @@ function Home() {
                     : "about page-content"
                 }
               >
-                <div className="music">Coming Soon</div>
+                <div className="text-container">
+                  {/* {mostPlayed10.map((song) => {
+                    return <div className="song">{song.Name}</div>;
+                  })} */}
+                  Coming Soon
+                </div>
               </div>
               <div
                 className={
