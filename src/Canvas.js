@@ -1,9 +1,26 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-function Canvas({ height, width }) {
+function Canvas({ height, width, color }) {
+  const [canvasColor, setCanvasColor] = useState("");
+  const [starColor, setStarColor] = useState("");
+
+  /* if (color===false) {
+  setCanvasColor("dark")
+} else {
+  setCanvasColor
+} */
+
   // constants
-  const COLOR_SPACE = "hsl(0, 0%, 90%)";
-  const COLOR_STARS = "black";
+  useEffect(() => {
+    const COLOR_SPACE = color ? "hsl(0, 0%, 90%)" : "hsl(0, 0%, 5%)";
+    const COLOR_STARS = color ? "hsl(0, 0%, 5%)" : "hsl(0, 0%, 90%)";
+    setCanvasColor(COLOR_SPACE);
+    console.log("cc", canvasColor);
+    setStarColor(COLOR_STARS);
+    console.log("sc", starColor);
+  }, [color]);
+  /* const COLOR_SPACE = color ? "hsl(0, 0%, 90%)" : "hsl(0, 0%, 5%)";
+  const COLOR_STARS = color ? "hsl(0, 0%, 5%)" : "hsl(0, 0%, 90%)"; */
   const STAR_NUM = 200; // number of stars in the starfield
   const STAR_SIZE = 0.003; // max star size as a fraction of screen width
   const STAR_SPEED = 0.03; // fraction of screen width per second
@@ -44,11 +61,11 @@ function Canvas({ height, width }) {
       timeLast = timeNow;
 
       // space background
-      context.fillStyle = COLOR_SPACE;
+      context.fillStyle = canvasColor;
       context.fillRect(0, 0, canvas.width, canvas.height);
 
       // draw the stars
-      context.fillStyle = COLOR_STARS;
+      context.fillStyle = starColor;
       for (let i = 0; i < STAR_NUM; i++) {
         context.beginPath();
         context.arc(stars[i].x, stars[i].y, stars[i].r, 0, Math.PI * 2);
@@ -82,7 +99,7 @@ function Canvas({ height, width }) {
     function randomSign() {
       return Math.random() >= 0.5 ? 1 : -1;
     }
-  }, [height, width]);
+  }, [height, width, canvasColor, starColor]);
 
   return <canvas className="background-canvas" ref={canvasRef} />;
 }

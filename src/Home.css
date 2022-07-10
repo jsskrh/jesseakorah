@@ -6,7 +6,17 @@
   font-size: 15px;
   font-weight: 600;
   position: fixed;
+  /* transition: background 0.5s ease; */
+}
+
+.page.dark {
+  background: hsl(0, 0%, 5%);
+  color: hsl(0, 0%, 90%);
+}
+
+.page.light {
   background: hsl(0, 0%, 90%);
+  color: hsl(0, 0%, 5%);
 }
 
 .page a {
@@ -34,9 +44,51 @@ ul {
 
 .transparent-boxes .box {
   position: absolute;
-  background: hsl(0, 0%, 90%);
   opacity: 0.9;
   z-index: 3;
+}
+
+.toggle-color {
+  display: flex;
+  transform: rotate(270deg) translateY(15px) translateX(15px);
+  margin-top: auto;
+  position: absolute;
+  bottom: 0;
+  transform-origin: bottom left;
+}
+
+@media (min-width: 1280px) {
+  .toggle-color {
+    transform: rotate(270deg) translateY(30px) translateX(30px) !important;
+  }
+}
+
+.color-setter {
+  display: flex;
+  align-items: center;
+}
+
+.color-setter.dark {
+  margin-left: 15px;
+}
+
+.color-setter .checkbox {
+  height: 10px;
+  width: 10px;
+  border: 1px solid hsl(0, 0%, 90%);
+  margin-left: 3px;
+}
+
+.color-setter .checkbox.checked {
+  background: hsl(0, 0%, 90%);
+}
+
+.page.light .color-setter .checkbox {
+  border: 1px solid hsl(0, 0%, 5%);
+}
+
+.page.light .color-setter .checkbox.checked {
+  background: hsl(0, 0%, 5%);
 }
 
 @media (min-width: 1280px) {
@@ -78,14 +130,21 @@ ul {
   left: 0;
 }
 
-.page-container {
+.page .page-container {
   display: flex;
   align-self: stretch;
   width: 100%;
-  border: 1px solid black;
   margin: 15px;
   flex-direction: column;
   position: relative;
+}
+
+.page.light .page-container {
+  border: 1px solid hsl(0, 0%, 5%);
+}
+
+.page.dark .page-container {
+  border: 1px solid hsl(0, 0%, 90%);
 }
 
 @media (min-width: 1280px) {
@@ -391,20 +450,34 @@ div.visible-page {
 }
 
 .contact .bottom {
-  font-size: 60px;
+  font-size: 30px;
   font-weight: 200;
 }
 
+@media (min-width: 1280px) {
+  .email-container .bottom {
+    font-size: 60px;
+  }
+
+  .contact .underline {
+    height: 5px;
+  }
+}
+
 .contact .underline {
-  height: 5px;
+  height: 2px;
   width: 100%;
-  background: black;
+  background: hsl(0, 0%, 5%);
+}
+
+.page.dark .contact .underline {
+  background: hsl(0, 0%, 90%);
 }
 
 .cursor {
   width: 0px;
   height: 0px;
-  background: black;
+  background: hsl(0, 0%, 5%);
   border-radius: 100%;
   position: fixed;
   transform: translate(-50%, -50%);
@@ -419,6 +492,11 @@ div.visible-page {
   opacity: 0;
 }
 
+.page.dark .cursor {
+  color: hsl(0, 0%, 5%);
+  background: hsl(0, 0%, 90%);
+}
+
 .cursor.show {
   opacity: 1;
   width: 80px;
@@ -427,7 +505,7 @@ div.visible-page {
 
 .cursor.click {
   transform: translate(-50%, -50%) scale(1.5);
-  background-color: #121212;
+  /* background-color: hsl(0, 0%, 5%); */
 }
 
 .cursor span {

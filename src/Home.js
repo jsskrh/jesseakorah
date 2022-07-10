@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Canvas from "./Canvas";
 import Cursor from "./Cursor";
 import "./Home.css";
+import musicLibrary from "./musicLibrary";
+import _ from "lodash";
 
 function Home() {
   const [page, setPage] = useState("home");
@@ -11,6 +13,13 @@ function Home() {
   const [backgroundWidth, setBackgroundWidth] = useState(0);
   const [show, setShow] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [color, setColor] = useState(false);
+
+  /*   if ((color = true)) {
+    const backgroundColor = "dark";
+  } else {
+    const backgroundColor = "light";
+  } */
 
   const backgroundRef = useRef(null);
   const pageRef = useRef(null);
@@ -92,6 +101,7 @@ function Home() {
     }
   }, [page]);
 
+  //clipboard
   const copyToClipboard = (text) => {
     const ta = document.createElement("textarea");
     ta.innerText = text;
@@ -101,18 +111,51 @@ function Home() {
     ta.remove();
   };
 
+  // sort decending
+  const mostPlayed = [...musicLibrary].sort((a, b) => b.Plays - a.Plays);
+  const mostPlayed10 = mostPlayed.slice(0, 10);
+
+  //group by artist
+  const artists = _.groupBy(musicLibrary, "Artist");
+  console.log(Object.values(artists));
+
   return (
-    <div className="page">
+    <div className={color ? "page light" : "page dark"}>
       <Cursor show={show} page={page} copied={copied} email={email} />
       <div className="transparent-boxes">
         <div className="box box-top"></div>
         <div className="box box-right"></div>
-        <div className="box box-left"></div>
+        <div className="box box-left">
+          <div className="toggle-color">
+            <div
+              className="color-setter"
+              onClick={() => {
+                setColor(true);
+              }}
+            >
+              <span>LIGHT</span>
+              <div className={color ? "checkbox checked" : "checkbox"}></div>
+            </div>
+            <div
+              className="color-setter dark"
+              onClick={() => {
+                setColor(false);
+              }}
+            >
+              <span>DARK</span>
+              <div className={color ? "checkbox" : "checkbox checked"}></div>
+            </div>
+          </div>
+        </div>
         <div className="box box-bottom"></div>
       </div>
       <div className="page-container" ref={pageRef}>
         <div className="background" ref={backgroundRef}>
-          <Canvas height={backgroundHeight} width={backgroundWidth} />
+          <Canvas
+            height={backgroundHeight}
+            width={backgroundWidth}
+            color={color}
+          />
         </div>
         <div className="page-inner">
           <div className="content">
@@ -319,11 +362,10 @@ function Home() {
                     : "about page-content"
                 }
               >
-                <div className="text-container">
-                  {/* {mostPlayed10.map((song) => {
+                <div className="music">
+                  {mostPlayed10.map((song) => {
                     return <div className="song">{song.Name}</div>;
-                  })} */}
-                  Coming Soon
+                  })}
                 </div>
               </div>
               <div
