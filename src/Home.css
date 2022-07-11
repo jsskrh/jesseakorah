@@ -24,7 +24,6 @@
 .landing-page.show,
 .landing-text .dev-name.show,
 .landing-text .description.show {
-  /* visibility: visible; */
   opacity: 1;
   display: flex;
 }
@@ -42,14 +41,12 @@
 .landing-text .dev-name {
   margin-right: 15px;
   font-weight: 300;
-  /* visibility: hidden; */
   opacity: 0;
   transition: opacity 0.4s ease;
 }
 
 .landing-text .description {
   font-weight: 100;
-  /* visibility: hidden; */
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -186,11 +183,11 @@ ul {
 }
 
 .page.light .page-container {
-  border: 1px solid hsl(0, 0%, 5%);
+  border: 0.5px solid hsl(0, 0%, 5%);
 }
 
 .page.dark .page-container {
-  border: 1px solid hsl(0, 0%, 90%);
+  border: 0.5px solid hsl(0, 0%, 90%);
 }
 
 @media (min-width: 1280px) {
