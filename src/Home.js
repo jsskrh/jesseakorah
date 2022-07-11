@@ -8,6 +8,7 @@ import _ from "lodash";
 import Projects from "./ProjectsPage";
 import Info from "./InfoPage";
 import HomePage from "./HomePage";
+import LandingPage from "./LandingPage";
 
 function Home() {
   const [page, setPage] = useState("home");
@@ -118,6 +119,7 @@ function Home() {
 
   return (
     <div className={color ? "page light" : "page dark"}>
+      <LandingPage />
       <Cursor show={show} page={page} copied={copied} email={email} />
       <div className="transparent-boxes">
         <div className="box box-top"></div>

@@ -9,6 +9,51 @@
   /* transition: background 0.5s ease; */
 }
 
+.landing-page {
+  height: 100%;
+  width: 100%;
+  background: hsl(0, 0%, 5%);
+  position: absolute;
+  z-index: 5;
+  /* visibility: hidden; */
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+.landing-page.show,
+.landing-text .dev-name.show,
+.landing-text .description.show {
+  /* visibility: visible; */
+  opacity: 1;
+  display: flex;
+}
+
+.landing-page.none {
+  display: none;
+}
+
+.landing-page .landing-text {
+  align-self: center;
+  display: flex;
+  transition: opacity 0.4s ease;
+}
+
+.landing-text .dev-name {
+  margin-right: 15px;
+  font-weight: 300;
+  /* visibility: hidden; */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.landing-text .description {
+  font-weight: 100;
+  /* visibility: hidden; */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
 .page.dark {
   background: hsl(0, 0%, 5%);
   color: hsl(0, 0%, 90%);
