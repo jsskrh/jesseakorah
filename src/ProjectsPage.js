@@ -54,7 +54,8 @@ function Projects() {
       </div>
       {/* <div className="project-section second">
         <h2 className="section-title">Design & Develop</h2>
-        <ul className="projects-list"></ul>
+        <ul className="projects-list">
+        </ul>
       </div> */}
     </div>
   );

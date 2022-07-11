@@ -45,22 +45,32 @@ function Home() {
   });
 
   const projectsRef = useRef();
+  const aboutRef = useRef();
 
   useEffect(() => {
     const projectsCont = projectsRef.current;
-    const maxScroll = projectsCont.clientHeight * 0.3895;
+    const aboutCont = aboutRef.current;
+    const currentCont = page === "projects" ? projectsCont : aboutCont;
     const pageHeight = pageRef.current.clientHeight;
-    const projectsHeight = projectsCont.clientHeight;
+    const maxScroll = currentCont.clientHeight - pageHeight; /* * 0.3895 */
+    const currentHeight = currentCont.clientHeight;
+    console.log(page, currentHeight);
+    console.log("max", maxScroll);
 
     window.addEventListener("wheel", (event) => {
-      if (projectsHeight > pageHeight) {
+      if (currentHeight > pageHeight) {
         if (
-          pageScroll >= -maxScroll &&
-          pageScroll <= 0 &&
-          page === "projects"
+          /* pageScroll >= -maxScroll && */
+          /* pageScroll <= 0 && */
+          page === "projects" ||
+          page === "about"
         ) {
-          setPageScroll(pageScroll - event.deltaY);
-          projectsCont.style.transform = `translate3d(0, ${pageScroll}px, 0)`;
+          const newPageScroll = Math.min(
+            Math.max(pageScroll - event.deltaY, -maxScroll),
+            0
+          );
+          setPageScroll(newPageScroll);
+          currentCont.style.transform = `translate3d(0, ${pageScroll}px, 0)`;
         }
       }
     });
@@ -111,11 +121,11 @@ function Home() {
 
   // sort decending
   const mostPlayed = [...musicLibrary].sort((a, b) => b.Plays - a.Plays);
-  const mostPlayed10 = mostPlayed.slice(0, 10);
+  const mostPlayed10 = mostPlayed.slice(0, 25);
 
   //group by artist
   const artists = _.groupBy(musicLibrary, "Artist");
-  console.log(Object.values(artists));
+  /* console.log(Object.values(artists)); */
 
   return (
     <div className={color ? "page light" : "page dark"}>
@@ -266,6 +276,7 @@ function Home() {
                     ? "about page-content visible-page"
                     : "about page-content"
                 }
+                ref={aboutRef}
               >
                 <div className="music">
                   {mostPlayed10.map((song, index) => {

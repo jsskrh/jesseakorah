@@ -82,10 +82,15 @@ ul {
   position: absolute;
 }
 
+.page.light .transparent-boxes .box {
+  background-color: hsl(0, 0%, 90%) !important;
+}
+
 .transparent-boxes .box {
   position: absolute;
   opacity: 0.9;
   z-index: 3;
+  background-color: hsl(0, 0%, 5%);
 }
 
 .toggle-color {
@@ -524,6 +529,10 @@ div.visible-page {
     bottom: 0;
     height: fit-content;
     width: fit-content;
+  }
+
+  .info .info-page {
+    display: contents;
   }
 
   .info .info-page > div,
