@@ -5,6 +5,9 @@ import Cursor from "./Cursor";
 import "./Home.css";
 import musicLibrary from "./musicLibrary";
 import _ from "lodash";
+import Projects from "./ProjectsPage";
+import Info from "./InfoPage";
+import HomePage from "./HomePage";
 
 function Home() {
   const [page, setPage] = useState("home");
@@ -14,12 +17,6 @@ function Home() {
   const [show, setShow] = useState(false);
   const [copied, setCopied] = useState(false);
   const [color, setColor] = useState(false);
-
-  /*   if ((color = true)) {
-    const backgroundColor = "dark";
-  } else {
-    const backgroundColor = "light";
-  } */
 
   const backgroundRef = useRef(null);
   const pageRef = useRef(null);
@@ -231,13 +228,7 @@ function Home() {
                     : "home page-content"
                 }
               >
-                <p className="content-text">
-                  Raised in Lagos, Nigeria, I am a creative fullstack developer,
-                  with keen interest in exploring the artistic possibilies of
-                  web development. Thus I am constantly learning and testing the
-                  limits of web element manipulation in the pursuit of new
-                  artistic expressions.
-                </p>
+                <HomePage />
               </div>
               <div
                 className={
@@ -247,62 +238,7 @@ function Home() {
                 }
                 ref={projectsRef}
               >
-                <div className="project-section">
-                  <h2 className="section-title">Develop</h2>
-                  <ul className="projects-list">
-                    <li>
-                      <a
-                        href="https://amazon-clone-160422.herokuapp.com"
-                        className="project-item"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <span className="project-info">2022 / Personal</span>
-                        <span className="project-title">Amazon clone</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://jsskrh.github.io/museum-of-candy/"
-                        className="project-item"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <span className="project-info">2020 / Personal</span>
-                        <span className="project-title">Museum of Candy</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://jsskrh.github.io/color-matching-game/"
-                        className="project-item"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <span className="project-info">2020 / Personal</span>
-                        <span className="project-title">
-                          Color Matching Game
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://jsskrh.github.io/to-do-list/"
-                        className="project-item"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <span className="project-info">2020 / Personal</span>
-                        <span className="project-title">Todo List</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                {/* <div className="project-section second">
-                  <h2 className="section-title">Design & Develop</h2>
-                  <ul className="projects-list">
-                  </ul>
-                </div> */}
+                <Projects />
               </div>
               <div
                 className={
@@ -311,40 +247,7 @@ function Home() {
                     : "info page-content"
                 }
               >
-                <div className="top">
-                  <a
-                    href="https://github.com/jsskrh"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Github ↗
-                  </a>
-                </div>
-                <div className="middle">
-                  <p>
-                    <a
-                      href="https://twitter.com/kasiemobi__"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Twitter ↗
-                    </a>
-                  </p>
-                  <p>
-                    <a
-                      href="https://www.instagram.com/kasiemobi__/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Instagram ↗
-                    </a>
-                  </p>
-                </div>
-                <div className="bottom">
-                  <p>The things we can't</p>
-                  <p>obtain are the most</p>
-                  <p>beautiful ones</p>
-                </div>
+                <Info />
               </div>
               <div
                 className={
@@ -363,8 +266,26 @@ function Home() {
                 }
               >
                 <div className="music">
-                  {mostPlayed10.map((song) => {
-                    return <div className="song">{song.Name}</div>;
+                  {mostPlayed10.map((song, index) => {
+                    return (
+                      <div className="song-container">
+                        <div className="song">
+                          <div className="left">
+                            <span className="song-index">{index + 1}.</span>
+                            <div className="album-art"></div>
+                            <div className="song-info">
+                              <span className="song-title">{song.Name}</span>
+                              <span className="artist-name">{song.Artist}</span>
+                            </div>
+                          </div>
+                          <div className="right">
+                            <span className="plays-count">
+                              {song.Plays} plays
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    );
                   })}
                 </div>
               </div>
