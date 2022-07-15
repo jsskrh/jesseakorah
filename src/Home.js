@@ -9,6 +9,7 @@ import Projects from "./ProjectsPage";
 import Info from "./InfoPage";
 import HomePage from "./HomePage";
 import LandingPage from "./LandingPage";
+import ListContainer from "./ListContainer";
 
 function Home() {
   const [page, setPage] = useState("home");
@@ -47,24 +48,19 @@ function Home() {
   const projectsRef = useRef();
   const aboutRef = useRef();
 
+  // Page scroll
+
   useEffect(() => {
     const projectsCont = projectsRef.current;
     const aboutCont = aboutRef.current;
     const currentCont = page === "projects" ? projectsCont : aboutCont;
     const pageHeight = pageRef.current.clientHeight;
-    const maxScroll = currentCont.clientHeight - pageHeight; /* * 0.3895 */
+    const maxScroll = currentCont.clientHeight - pageHeight;
     const currentHeight = currentCont.clientHeight;
-    console.log(page, currentHeight);
-    console.log("max", maxScroll);
 
     window.addEventListener("wheel", (event) => {
       if (currentHeight > pageHeight) {
-        if (
-          /* pageScroll >= -maxScroll && */
-          /* pageScroll <= 0 && */
-          page === "projects" ||
-          page === "about"
-        ) {
+        if (page === "projects" || page === "about") {
           const newPageScroll = Math.min(
             Math.max(pageScroll - event.deltaY, -maxScroll),
             0
@@ -121,15 +117,25 @@ function Home() {
 
   // sort decending
   const mostPlayed = [...musicLibrary].sort((a, b) => b.Plays - a.Plays);
-  const mostPlayed10 = mostPlayed.slice(0, 25);
+  const mostPlayed10 = mostPlayed.slice(0, 10);
 
   //group by artist
-  const artists = _.groupBy(musicLibrary, "Artist");
-  /* console.log(Object.values(artists)); */
+  const artists = Object.values(_.groupBy(musicLibrary, "Artist"));
+  const artistHours = artists.map((artist) => {
+    const artistName = artist[0].Artist;
+    var listeningTime = 0;
+    artist.map((song) => {
+      var songTime = song.Time * song.Plays;
+      listeningTime += songTime;
+    });
+    return { name: artistName, time: listeningTime };
+  });
+  const mostListened = [...artistHours].sort((a, b) => b.time - a.time);
+  const mostListened10 = mostListened.slice(0, 10);
 
   return (
     <div className={color ? "page light" : "page dark"}>
-      <LandingPage />
+      {/* <LandingPage /> */}
       <Cursor show={show} page={page} copied={copied} email={email} />
       <div className="transparent-boxes">
         <div className="box box-top"></div>
@@ -278,28 +284,36 @@ function Home() {
                 }
                 ref={aboutRef}
               >
-                <div className="music">
-                  {mostPlayed10.map((song, index) => {
-                    return (
-                      <div className="song-container">
-                        <div className="song">
-                          <div className="left">
-                            <span className="song-index">{index + 1}.</span>
-                            <div className="album-art"></div>
-                            <div className="song-info">
-                              <span className="song-title">{song.Name}</span>
-                              <span className="artist-name">{song.Artist}</span>
-                            </div>
-                          </div>
-                          <div className="right">
-                            <span className="plays-count">
-                              {song.Plays} plays
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
+                <div className="about-category music">
+                  <h1 className="list-title">Music</h1>
+                  <div className="music-section">
+                    <div className="section-left sticky">
+                      <h3 className="left-title">ARTISTS</h3>
+                      <p className="left-text">
+                        I enjoy music and I enjoy discovering music more. I
+                        listen to a broad range of genres. Often reoccuring are
+                        rock, symphonic metal, rap and indie. This is a list of
+                        what seems to be my favourite artists according to my
+                        Apple Music listening time through the years.
+                      </p>
+                    </div>
+                    <ListContainer listArr={mostListened10} music />
+                  </div>
+                </div>
+                <div className="about-category books">
+                  <h1 className="list-title">Books</h1>
+                  <div className="music-section">
+                    <div className="section-left sticky">
+                      <h3 className="left-title">BOOKS</h3>
+                      <p className="left-text">
+                        Why experince only one world, when you can experince an
+                        infinite number. I love reading books, mostly fiction.
+                        An escape from reality. This is a list of all the books
+                        I've read so far this year.
+                      </p>
+                    </div>
+                    <div className="most-listened-songs section-right"></div>
+                  </div>
                 </div>
               </div>
               <div
