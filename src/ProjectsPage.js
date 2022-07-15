@@ -1,56 +1,42 @@
 import React from "react";
+import ListContainer from "./ListContainer";
 
 function Projects() {
+  const projectsArr = [
+    {
+      title: "Amazon clone",
+      year: "2022",
+      type: "Personal",
+      link: "https://amazon-clone-160422.herokuapp.com",
+      image: "",
+    },
+    {
+      title: "Museum of Candy",
+      year: "2020",
+      type: "Personal",
+      link: "https://jsskrh.github.io/museum-of-candy/",
+      image: "",
+    },
+    {
+      title: "Color Matching Game",
+      year: "2020",
+      type: "Personal",
+      link: "https://jsskrh.github.io/color-matching-game/",
+      image: "",
+    },
+    {
+      title: "Todo List",
+      year: "2020",
+      type: "Personal",
+      link: "https://jsskrh.github.io/to-do-list/",
+      image: "",
+    },
+  ];
   return (
     <div className="projects-page">
       <div className="project-section">
-        <h2 className="section-title">Develop</h2>
-        <ul className="projects-list">
-          <li>
-            <a
-              href="https://amazon-clone-160422.herokuapp.com"
-              className="project-item"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="project-info">2022 / Personal</span>
-              <span className="project-title">Amazon clone</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://jsskrh.github.io/museum-of-candy/"
-              className="project-item"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="project-info">2020 / Personal</span>
-              <span className="project-title">Museum of Candy</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://jsskrh.github.io/color-matching-game/"
-              className="project-item"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="project-info">2020 / Personal</span>
-              <span className="project-title">Color Matching Game</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://jsskrh.github.io/to-do-list/"
-              className="project-item"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="project-info">2020 / Personal</span>
-              <span className="project-title">Todo List</span>
-            </a>
-          </li>
-        </ul>
+        <h2 className="list-title">Develop</h2>
+        <ListContainer listArr={projectsArr} projects />
       </div>
       {/* <div className="project-section second">
         <h2 className="section-title">Design & Develop</h2>
