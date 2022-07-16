@@ -564,17 +564,12 @@ h2.list-title {
 
   .category-content .left-text {
     font-size: 20px !important;
-    font-weight: 600 !important;
     margin-top: 10px !important;
   }
 
   .category-content .section-left {
     margin-right: var(--music-section-left-pad);
     margin-top: 50px !important;
-  }
-
-  .category-content .left-text {
-    font-weight: 600 !important;
   }
 }
 
