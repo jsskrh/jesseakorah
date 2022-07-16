@@ -106,13 +106,12 @@ function Home() {
     window.addEventListener("touchstart", (event) => {
       if (currentHeight > pageHeight) {
         if (page === "projects" || page === "about") {
-          const startCoord = event.touches.pageY;
+          const startCoord = event.pageY;
           window.addEventListener("touchmove", (event) => {
-            const endCoord = event.touches.pageY;
+            const endCoord = event.pageY;
             const distance = endCoord - startCoord;
-
             const newPageScroll = Math.min(
-              Math.max(pageScroll - distance, -maxScroll),
+              Math.max(pageScroll + distance, -maxScroll),
               0
             );
 
