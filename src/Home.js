@@ -89,13 +89,13 @@ function Home() {
 
           const devScroll = Math.max(
             pageScroll,
-            -(devHeight - devLeftHeight - 50) + 30
+            -(devHeight - devLeftHeight - 50)
           );
           devLeftCont.style.transform = `translate3d(0, ${-devScroll}px, 0)`;
 
           const musicScroll = Math.min(
             Math.max(-pageScroll - devHeight - 90, 0),
-            musicHeight - musicLeftHeight - 30
+            musicHeight - musicLeftHeight - 50
           );
           musicLeftCont.style.transform = `translate3d(0, ${musicScroll}px, 0)`;
         }
@@ -335,15 +335,12 @@ function Home() {
                 <div className="about-category developer">
                   <h1 className="list-title">Languages & Technologies</h1>
                   <div className="category-content" ref={devRef}>
-                    <div className="section-left sticky" ref={devLeftRef}>
+                    <div className="section-left" ref={devLeftRef}>
                       <h3 className="left-title">DEVELOPMENT</h3>
                       <p className="left-text">
-                        I'm a creative developer. I love to experiment and I use
-                        unique designs in the building of products and the
-                        creation of immersive web experiences. I am a fullstack
-                        developer who primarily uses the MERN stack, but also
-                        knows how to use other technologies. Feel free to reach
-                        out, I'd love to work together.
+                        I am a fullstack developer who primarily uses the MERN
+                        stack, but also knows how to use other technologies.
+                        Feel free to reach out, I'd love to work together.
                       </p>
                     </div>
                     <ListContainer listArr={devArr} row={true} />
@@ -352,7 +349,7 @@ function Home() {
                 <div className="about-category music">
                   <h1 className="list-title">Music</h1>
                   <div className="category-content" ref={musicRef}>
-                    <div className="section-left sticky" ref={musicLeftRef}>
+                    <div className="section-left" ref={musicLeftRef}>
                       <h3 className="left-title">ARTISTS</h3>
                       <p className="left-text">
                         I enjoy music and I enjoy discovering music more. I
@@ -368,9 +365,7 @@ function Home() {
                 <div className="about-category books">
                   <h1 className="list-title">Books</h1>
                   <div className="category-content" /* ref={booksRef} */>
-                    <div
-                      className="section-left sticky" /* ref={booksLeftRef} */
-                    >
+                    <div className="section-left" /* ref={booksLeftRef} */>
                       <h3 className="left-title">BOOKS</h3>
                       <p className="left-text">
                         Why experince only one world, when you can experince an
