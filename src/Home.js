@@ -75,7 +75,7 @@ function Home() {
     /* const booksHeight = booksCont.clientHeight;
     const bookseftHeight = booksLeftCont.clientHeight; */
 
-    window.addEventListener("wheel" || "scroll", (event) => {
+    window.addEventListener("wheel" || "touchmove", (event) => {
       if (currentHeight > pageHeight) {
         if (page === "projects" || page === "about") {
           const newPageScroll = Math.min(
