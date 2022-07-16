@@ -532,6 +532,10 @@ div.visible-page {
   color: rgba(235, 235, 245, 0.6);
 }
 
+.page.light .category-content .left-title {
+  color: rgba(20, 20, 10, 0.6);
+}
+
 .category-content .left-text {
   font-size: 20px;
   line-height: 1.1666666667;
@@ -615,6 +619,12 @@ div.visible-page {
 .developer .list-container .list-info,
 .music .list-container .list-info {
   color: rgba(235, 235, 245, 0.6);
+}
+
+.page.light .developer .list-container .list-info,
+.page.light .music .list-container .list-info {
+  color: rgba(235, 235, 245, 0.6);
+  color: rgba(20, 20, 10, 0.6);
 }
 
 .page.light .most-listened-artists .listening-time {
