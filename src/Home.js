@@ -103,8 +103,38 @@ function Home() {
       }
     });
 
-    window.addEventListener("touchmove", () => {
-      window.dispatchEvent(new Event("wheel"));
+    window.addEventListener("touchstart", (event) => {
+      if (currentHeight > pageHeight) {
+        if (page === "projects" || page === "about") {
+          const startCoord = event.touches.pageY;
+          window.addEventListener("touchmove", (event) => {
+            const endCoord = event.touches.pageY;
+            const distance = endCoord - startCoord;
+
+            const newPageScroll = Math.min(
+              Math.max(pageScroll - distance, -maxScroll),
+              0
+            );
+
+            setPageScroll(newPageScroll);
+            currentCont.style.transform = `translate3d(0, ${pageScroll}px, 0)`;
+
+            if (window.innerWidth >= 1280) {
+              const devScroll = Math.max(
+                pageScroll,
+                -(devHeight - devLeftHeight - 50)
+              );
+              devLeftCont.style.transform = `translate3d(0, ${-devScroll}px, 0)`;
+
+              const musicScroll = Math.min(
+                Math.max(-pageScroll - devHeight - 90, 0),
+                musicHeight - musicLeftHeight - 50
+              );
+              musicLeftCont.style.transform = `translate3d(0, ${musicScroll}px, 0)`;
+            }
+          });
+        }
+      }
     });
   }, [page, pageScroll]);
 
