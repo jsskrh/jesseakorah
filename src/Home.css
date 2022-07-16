@@ -310,19 +310,23 @@ ul {
   visibility: visible;
 }
 
-.nav ul li a {
+.nav ul li a,
+.nav ul li .nav-link {
   z-index: 3;
   transition: all 0.4s ease-in-out;
+  cursor: pointer;
 }
 
-.nav ul li a:hover {
+.nav ul li a:hover,
+.nav ul li .nav-link:hover {
   opacity: 0.25;
   transition-property: opacity;
   transition-duration: 0.4s;
   transition-timing-function: cubic-bezier(0.1, 0.4, 0.2, 1);
 }
 
-.nav ul li.active a {
+.nav ul li.active a,
+.nav ul li.active .nav-link {
   visibility: hidden;
 }
 

@@ -165,7 +165,7 @@ function Home() {
   };
 
   // sort decending
-  const mostPlayed = [...musicLibrary].sort((a, b) => b.Plays - a.Plays);
+  /* const mostPlayed = [...musicLibrary].sort((a, b) => b.Plays - a.Plays); */
 
   //group by artist
   const artists = Object.values(_.groupBy(musicLibrary, "Artist"));
@@ -233,9 +233,12 @@ function Home() {
                     className={page === "home" ? "nav-item active" : "nav-item"}
                   >
                     <span className="dot">●</span>
-                    <a href="#" onClick={() => handlePage("home")}>
+                    <span
+                      className="nav-link"
+                      onClick={() => handlePage("home")}
+                    >
                       Home
-                    </a>
+                    </span>
                   </li>
                   <li
                     className={
@@ -243,17 +246,23 @@ function Home() {
                     }
                   >
                     <span className="dot">●</span>
-                    <a href="#" onClick={() => handlePage("projects")}>
+                    <span
+                      className="nav-link"
+                      onClick={() => handlePage("projects")}
+                    >
                       Projects
-                    </a>
+                    </span>
                   </li>
                   <li
                     className={page === "art" ? "nav-item active" : "nav-item"}
                   >
                     <span className="dot">●</span>
-                    <a href="#" onClick={() => handlePage("art")}>
+                    <span
+                      className="nav-link"
+                      onClick={() => handlePage("art")}
+                    >
                       Art
-                    </a>
+                    </span>
                   </li>
                   <li
                     className={
@@ -261,17 +270,23 @@ function Home() {
                     }
                   >
                     <span className="dot">●</span>
-                    <a href="#" onClick={() => handlePage("about")}>
+                    <span
+                      className="nav-link"
+                      onClick={() => handlePage("about")}
+                    >
                       About
-                    </a>
+                    </span>
                   </li>
                   <li
                     className={page === "info" ? "nav-item active" : "nav-item"}
                   >
                     <span className="dot">●</span>
-                    <a href="#" onClick={() => handlePage("info")}>
+                    <span
+                      className="nav-link"
+                      onClick={() => handlePage("info")}
+                    >
                       Info
-                    </a>
+                    </span>
                   </li>
                   <li
                     className={
@@ -279,9 +294,12 @@ function Home() {
                     }
                   >
                     <span className="dot">●</span>
-                    <a href="#" onClick={() => handlePage("contact")}>
+                    <span
+                      className="nav-link"
+                      onClick={() => handlePage("contact")}
+                    >
                       Contact
-                    </a>
+                    </span>
                   </li>
                 </ul>
               </div>

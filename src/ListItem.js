@@ -6,7 +6,7 @@ function ListItem({ item, row }) {
     <li>
       {!row && (
         <div className={isHovering ? "list-image show" : "list-image"}>
-          <img src={item.image} />
+          <img src={item.image} alt={item.title} />
         </div>
       )}
 
