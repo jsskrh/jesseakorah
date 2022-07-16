@@ -93,7 +93,7 @@ ul {
 
 .transparent-boxes .box {
   position: absolute;
-  opacity: 0.9;
+  opacity: 0.8;
   z-index: 3;
   background-color: hsl(0, 0%, 5%);
 }
@@ -322,6 +322,7 @@ ul {
   opacity: 0;
   position: absolute;
   right: 0;
+  visibility: hidden;
 }
 
 .nav-content div {
@@ -332,6 +333,7 @@ div.visible-page {
   display: flex;
   opacity: 1;
   z-index: 1;
+  visibility: visible;
 }
 
 .home {
@@ -352,11 +354,52 @@ div.visible-page {
 
 .list-container {
   flex: 1;
+  margin-top: 50px;
+  row-gap: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-container.row {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.list-container.row li {
+  margin-left: 20px;
+}
+
+.list-container.row .list-title {
+  font-size: 45px;
 }
 
 .list-container li {
   width: fit-content;
   margin-left: auto;
+  display: flex;
+  position: relative;
+}
+
+.list-container .list-image {
+  background: yellow;
+  width: 201.6px;
+  height: 114.8px;
+  position: absolute;
+  margin-top: auto;
+  margin-bottom: auto;
+  top: 0;
+  bottom: 0;
+  left: -201.6px;
+  /* margin-left: -20px; */
+  opacity: 0;
+  transition: opacity 0.3s ease-in, transform 0.5s;
+}
+
+.list-container .list-image.show {
+  opacity: 1;
+  z-index: 4;
+  transform: translateX(-50%) scale(1.5);
 }
 
 @media (min-width: 1280px) {
@@ -376,17 +419,12 @@ div.visible-page {
   flex-direction: row-reverse;
 }
 
-.list-container {
-  margin-top: 50px;
-  row-gap: 15px;
-  display: flex;
-  flex-direction: column;
-}
-
 .list-container .list-item {
   transition-property: opacity;
   transition-duration: 0.4s;
   transition-timing-function: cubic-bezier(0.1, 0.4, 0.2, 1);
+  position: relative;
+  z-index: 3;
 }
 
 .list-container .list-item:hover {
@@ -460,6 +498,7 @@ div.visible-page {
 .about-category {
   display: flex;
   flex-direction: column;
+  margin-bottom: 30px;
 }
 
 .about-category .title {
@@ -469,29 +508,29 @@ div.visible-page {
   font-weight: 200;
 }
 
-.music-section {
+.category-content {
   display: flex;
   margin-bottom: 60px;
 }
 
-.music-section .section-left {
+.category-content .section-left {
   width: var(--music-section-left);
   height: 276px;
   margin-right: var(--music-section-left-pad);
   margin-top: 50px;
 }
 
-.music-section .section-left.sticky {
+.category-content .section-left.sticky {
   position: sticky;
   top: 104px;
 }
 
-.music-section .left-title {
+.category-content .left-title {
   font-size: 11px;
   color: rgba(235, 235, 245, 0.6);
 }
 
-.music-section .left-text {
+.category-content .left-text {
   font-size: 20px;
   line-height: 1.1666666667;
   font-weight: 600;
@@ -499,76 +538,8 @@ div.visible-page {
   margin-top: 10px;
 }
 
-.music-section .section-right {
+.category-content .section-right {
   width: calc(100% - var(--music-section-left) - var(--music-section-left-pad));
-}
-
-/* .music .most-listened-songs {
-} */
-
-.music .most-listened-songs .song-container {
-  padding: 7px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.page.light .most-listened-songs .song-container {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.music .most-listened-songs .song {
-  display: flex;
-}
-
-.most-listened-songs .song .left {
-  display: flex;
-}
-
-.most-listened-songs .song-index {
-  width: 20px;
-}
-
-.most-listened-songs .album-art {
-  height: 40px;
-  width: 40px;
-  margin-right: 15px;
-}
-
-.most-listened-songs .album-art-img {
-  width: 100%;
-  display: block;
-  border-radius: 5px;
-}
-
-.most-listened-songs .song-info {
-  display: flex;
-  flex-direction: column;
-  white-space: nowarp;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  flex: 1;
-}
-
-.most-listened-songs .song-title {
-  white-space: nowarp;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  flex: 1;
-}
-
-.most-listened-songs .artist-name {
-  color: rgba(235, 235, 245, 0.6);
-  font-size: 12px;
-  line-height: 18px;
-  margin-top: 3px;
-}
-
-.page.light .most-listened-songs .artist-name {
-  color: rgba(20, 20, 10, 0.6);
-}
-
-.most-listened-songs .right {
-  color: rgba(235, 235, 245, 0.3);
-  font-size: 12px;
 }
 
 .page.light .most-listened-songs .right {
@@ -639,6 +610,7 @@ div.visible-page {
   color: rgba(235, 235, 245, 0.6);
 }
 
+.developer .list-container .list-info,
 .music .list-container .list-info {
   color: rgba(235, 235, 245, 0.6);
 }

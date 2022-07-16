@@ -47,16 +47,34 @@ function Home() {
 
   const projectsRef = useRef();
   const aboutRef = useRef();
+  const devRef = useRef();
+  const devLeftRef = useRef();
+  const musicRef = useRef();
+  const musicLeftRef = useRef();
+  /* const booksRef = useRef();
+  const booksLeftRef = useRef(); */
 
   // Page scroll
 
   useEffect(() => {
     const projectsCont = projectsRef.current;
     const aboutCont = aboutRef.current;
+    const devCont = devRef.current;
+    const devLeftCont = devLeftRef.current;
+    const musicCont = musicRef.current;
+    const musicLeftCont = musicLeftRef.current;
+    /* const booksCont = booksRef.current;
+    const booksLeftCont = booksLeftRef.current; */
     const currentCont = page === "projects" ? projectsCont : aboutCont;
     const pageHeight = pageRef.current.clientHeight;
     const maxScroll = currentCont.clientHeight - pageHeight;
     const currentHeight = currentCont.clientHeight;
+    const devHeight = devCont.clientHeight;
+    const devLeftHeight = devLeftCont.clientHeight;
+    const musicHeight = musicCont.clientHeight;
+    const musicLeftHeight = musicLeftCont.clientHeight;
+    /* const booksHeight = booksCont.clientHeight;
+    const bookseftHeight = booksLeftCont.clientHeight; */
 
     window.addEventListener("wheel", (event) => {
       if (currentHeight > pageHeight) {
@@ -65,8 +83,21 @@ function Home() {
             Math.max(pageScroll - event.deltaY, -maxScroll),
             0
           );
+
           setPageScroll(newPageScroll);
           currentCont.style.transform = `translate3d(0, ${pageScroll}px, 0)`;
+
+          const devScroll = Math.max(
+            pageScroll,
+            -(devHeight - devLeftHeight - 50) + 30
+          );
+          devLeftCont.style.transform = `translate3d(0, ${-devScroll}px, 0)`;
+
+          const musicScroll = Math.min(
+            Math.max(-pageScroll - devHeight - 90, 0),
+            musicHeight - musicLeftHeight - 30
+          );
+          musicLeftCont.style.transform = `translate3d(0, ${musicScroll}px, 0)`;
         }
       }
     });
@@ -75,6 +106,23 @@ function Home() {
   const handlePage = (page) => {
     setPage(page);
   };
+
+  // Languages
+
+  const devArr = [
+    { title: "JavaScript", info: "Language" },
+    { title: "Noje.js", info: "Framework" },
+    { title: "ReactJS", info: "Framework" },
+    { title: "Redux", info: "Library" },
+    { title: "Express.js", info: "Framework" },
+    { title: "mongoDB", info: "Database" },
+    { title: "Firebase", info: "Database" },
+    { title: "jQuery", info: "Library" },
+    { title: "Bootstrap", info: "Framework" },
+    { title: "Semantic UI", info: "Framework" },
+    { title: "C#", info: "Language" },
+    { title: "Blazor", info: "Framework" },
+  ];
 
   const emailRef = useRef(null);
   const email = emailRef?.current;
@@ -284,10 +332,27 @@ function Home() {
                 }
                 ref={aboutRef}
               >
+                <div className="about-category developer">
+                  <h1 className="list-title">Languages & Technologies</h1>
+                  <div className="category-content" ref={devRef}>
+                    <div className="section-left sticky" ref={devLeftRef}>
+                      <h3 className="left-title">DEVELOPMENT</h3>
+                      <p className="left-text">
+                        I'm a creative developer. I love to experiment and I use
+                        unique designs in the building of products and the
+                        creation of immersive web experiences. I am a fullstack
+                        developer who primarily uses the MERN stack, but also
+                        knows how to use other technologies. Feel free to reach
+                        out, I'd love to work together.
+                      </p>
+                    </div>
+                    <ListContainer listArr={devArr} row={true} />
+                  </div>
+                </div>
                 <div className="about-category music">
                   <h1 className="list-title">Music</h1>
-                  <div className="music-section">
-                    <div className="section-left sticky">
+                  <div className="category-content" ref={musicRef}>
+                    <div className="section-left sticky" ref={musicLeftRef}>
                       <h3 className="left-title">ARTISTS</h3>
                       <p className="left-text">
                         I enjoy music and I enjoy discovering music more. I
@@ -302,8 +367,10 @@ function Home() {
                 </div>
                 <div className="about-category books">
                   <h1 className="list-title">Books</h1>
-                  <div className="music-section">
-                    <div className="section-left sticky">
+                  <div className="category-content" /* ref={booksRef} */>
+                    <div
+                      className="section-left sticky" /* ref={booksLeftRef} */
+                    >
                       <h3 className="left-title">BOOKS</h3>
                       <p className="left-text">
                         Why experince only one world, when you can experince an
