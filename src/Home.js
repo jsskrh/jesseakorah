@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import Canvas from "./Canvas";
 import Cursor from "./Cursor";
 import "./Home.css";
@@ -153,7 +152,7 @@ function Home() {
       addEventListeners();
       return () => removeEventListeners();
     }
-  }, [page]);
+  }, [page, email]);
 
   //clipboard
   const copyToClipboard = (text) => {
@@ -167,7 +166,6 @@ function Home() {
 
   // sort decending
   const mostPlayed = [...musicLibrary].sort((a, b) => b.Plays - a.Plays);
-  const mostPlayed10 = mostPlayed.slice(0, 10);
 
   //group by artist
   const artists = Object.values(_.groupBy(musicLibrary, "Artist"));
@@ -176,7 +174,7 @@ function Home() {
     var listeningTime = 0;
     artist.map((song) => {
       var songTime = song.Time * song.Plays;
-      listeningTime += songTime;
+      return (listeningTime += songTime);
     });
     return { name: artistName, time: listeningTime };
   });
@@ -185,7 +183,7 @@ function Home() {
 
   return (
     <div className={color ? "page light" : "page dark"}>
-      {/* <LandingPage /> */}
+      <LandingPage />
       <Cursor show={show} page={page} copied={copied} email={email} />
       <div className="transparent-boxes">
         <div className="box box-top"></div>

@@ -43,13 +43,7 @@ function Cursor({ show, page, copied, email }) {
       addEventListeners();
       return () => removeEventListeners();
     }
-  }, [page, copied]);
-
-  /* useEffect(() => {
-    const cursor = cursorRef?.current;
-    cursor.offsetLeft = position.x;
-    cursor.offsetTop = position.y;
-  }, [position]); */
+  }, [page, copied, email]);
 
   return (
     <div

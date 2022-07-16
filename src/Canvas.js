@@ -4,23 +4,13 @@ function Canvas({ height, width, color }) {
   const [canvasColor, setCanvasColor] = useState("");
   const [starColor, setStarColor] = useState("");
 
-  /* if (color===false) {
-  setCanvasColor("dark")
-} else {
-  setCanvasColor
-} */
-
   // constants
   useEffect(() => {
     const COLOR_SPACE = color ? "hsl(0, 0%, 90%)" : "hsl(0, 0%, 5%)";
     const COLOR_STARS = color ? "hsl(0, 0%, 5%)" : "hsl(0, 0%, 90%)";
     setCanvasColor(COLOR_SPACE);
-    console.log("cc", canvasColor);
     setStarColor(COLOR_STARS);
-    console.log("sc", starColor);
   }, [color]);
-  /* const COLOR_SPACE = color ? "hsl(0, 0%, 90%)" : "hsl(0, 0%, 5%)";
-  const COLOR_STARS = color ? "hsl(0, 0%, 5%)" : "hsl(0, 0%, 90%)"; */
   const STAR_NUM = 200; // number of stars in the starfield
   const STAR_SIZE = 0.003; // max star size as a fraction of screen width
   const STAR_SPEED = 0.03; // fraction of screen width per second
