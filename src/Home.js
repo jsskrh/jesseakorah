@@ -75,7 +75,7 @@ function Home() {
     /* const booksHeight = booksCont.clientHeight;
     const bookseftHeight = booksLeftCont.clientHeight; */
 
-    window.addEventListener("wheel" || "touchmove", (event) => {
+    window.addEventListener("wheel", (event) => {
       if (currentHeight > pageHeight) {
         if (page === "projects" || page === "about") {
           const newPageScroll = Math.min(
@@ -101,6 +101,10 @@ function Home() {
           }
         }
       }
+    });
+
+    window.addEventListener("touchmove", () => {
+      window.dispatchEvent(new Event("wheel"));
     });
   }, [page, pageScroll]);
 
