@@ -279,6 +279,7 @@ ul {
   max-height: 10px;
   cursor: default;
   opacity: 0;
+  visibility: hidden;
   z-index: 1;
   transition-property: opacity;
   transition-duration: 0.4s;
@@ -287,6 +288,7 @@ ul {
 
 .nav ul li.active .dot {
   opacity: 1;
+  visibility: visible;
 }
 
 .nav ul li a {
