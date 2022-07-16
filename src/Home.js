@@ -87,17 +87,19 @@ function Home() {
           setPageScroll(newPageScroll);
           currentCont.style.transform = `translate3d(0, ${pageScroll}px, 0)`;
 
-          const devScroll = Math.max(
-            pageScroll,
-            -(devHeight - devLeftHeight - 50)
-          );
-          devLeftCont.style.transform = `translate3d(0, ${-devScroll}px, 0)`;
+          if (window.innerWidth >= 1280) {
+            const devScroll = Math.max(
+              pageScroll,
+              -(devHeight - devLeftHeight - 50)
+            );
+            devLeftCont.style.transform = `translate3d(0, ${-devScroll}px, 0)`;
 
-          const musicScroll = Math.min(
-            Math.max(-pageScroll - devHeight - 90, 0),
-            musicHeight - musicLeftHeight - 50
-          );
-          musicLeftCont.style.transform = `translate3d(0, ${musicScroll}px, 0)`;
+            const musicScroll = Math.min(
+              Math.max(-pageScroll - devHeight - 90, 0),
+              musicHeight - musicLeftHeight - 50
+            );
+            musicLeftCont.style.transform = `translate3d(0, ${musicScroll}px, 0)`;
+          }
         }
       }
     });
@@ -353,10 +355,10 @@ function Home() {
                       <h3 className="left-title">ARTISTS</h3>
                       <p className="left-text">
                         I enjoy music and I enjoy discovering music more. I
-                        listen to a broad range of genres. Often reoccuring are
-                        rock, symphonic metal, rap and indie. This is a list of
-                        what seems to be my favourite artists according to my
-                        Apple Music listening time through the years.
+                        listen to a broad range of genres, mostly rock,
+                        symphonic metal, rap and indie. Here's a list of what
+                        seems to be my favourite artists according to my Apple
+                        Music listening time through the years.
                       </p>
                     </div>
                     <ListContainer listArr={mostListened10} music />

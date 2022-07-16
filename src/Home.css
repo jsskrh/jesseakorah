@@ -107,6 +107,12 @@ ul {
   transform-origin: bottom left;
 }
 
+@media (max-width: 1280px) {
+  .toggle-color {
+    line-height: 15px !important;
+  }
+}
+
 @media (min-width: 1280px) {
   .toggle-color {
     transform: rotate(270deg) translateY(30px) translateX(30px) !important;
@@ -356,7 +362,7 @@ div.visible-page {
 
 .list-container {
   flex: 1;
-  margin-top: 50px;
+  margin-top: 20px;
   row-gap: 15px;
   display: flex;
   flex-direction: column;
@@ -373,7 +379,17 @@ div.visible-page {
 }
 
 .list-container.row .list-title {
-  font-size: 45px;
+  font-size: 25px;
+}
+
+@media (min-width: 1280px) {
+  .list-container {
+    margin-top: 50px;
+  }
+
+  .list-container.row .list-title {
+    font-size: 45px;
+  }
 }
 
 .list-container li {
@@ -414,7 +430,8 @@ div.visible-page {
   margin-top: 100px;
 }
 
-.list-title {
+h1.list-title,
+h2.list-title {
   font-weight: 200;
   font-size: 15px;
   display: flex;
@@ -456,7 +473,7 @@ div.visible-page {
   }
 }
 
-@media (max-width: 1279px) {
+@media (max-width: 1280px) {
   .list-container .list-item {
     display: flex;
     flex-direction: column-reverse;
@@ -510,21 +527,52 @@ div.visible-page {
   font-weight: 200;
 }
 
+@media (min-width: 1280px) {
+  .category-content {
+    flex-direction: row !important;
+    margin-bottom: 60px !important;
+    /* margin-right: calc(var(--music-section-left-pad) / 2); */
+  }
+
+  .category-content .left-text {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    margin-top: 10px !important;
+  }
+
+  .category-content .section-left {
+    margin-right: var(--music-section-left-pad);
+    margin-top: 50px !important;
+  }
+
+  .category-content .left-text {
+    font-weight: 600 !important;
+  }
+}
+
 .category-content {
   display: flex;
-  margin-bottom: 60px;
+  flex-direction: column;
+  margin-bottom: 30px;
 }
 
 .category-content .section-left {
   width: var(--music-section-left);
-  height: 276px;
-  margin-right: var(--music-section-left-pad);
-  margin-top: 50px;
+  height: fit-content;
+  margin-top: 20px;
 }
 
-.category-content .section-left.sticky {
-  position: sticky;
-  top: 104px;
+@media (max-width: 1280px) {
+  .category-content .section-left {
+    text-align: end;
+    margin-left: auto;
+    margin-right: 15px;
+  }
+
+  .category-content .left-title,
+  .category-content .left-text {
+    margin-right: 15px;
+  }
 }
 
 .category-content .left-title {
@@ -537,11 +585,11 @@ div.visible-page {
 }
 
 .category-content .left-text {
-  font-size: 20px;
+  font-size: 15px;
   line-height: 1.1666666667;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.007em;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .category-content .section-right {
@@ -558,7 +606,7 @@ div.visible-page {
   }
 }
 
-@media (max-width: 1279px) {
+@media (max-width: 1280px) {
   .music .most-listened-songs .song {
     flex-direction: column;
   }
@@ -642,7 +690,7 @@ div.visible-page {
   width: fit-content;
 }
 
-@media (max-width: 1279px) {
+@media (max-width: 1280px) {
   .info {
     bottom: 0;
     height: fit-content;
