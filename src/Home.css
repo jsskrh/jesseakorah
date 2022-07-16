@@ -421,7 +421,7 @@ div.visible-page {
 }
 
 .list-container .list-image {
-  background: yellow;
+  /* background: yellow; */
   width: 201.6px;
   height: 114.8px;
   position: absolute;
@@ -441,6 +441,11 @@ div.visible-page {
   z-index: 4;
   visibility: visible;
   transform: translateX(-50%) scale(1.5);
+}
+
+.list-container .list-image img {
+  height: 100%;
+  width: 100%;
 }
 
 @media (min-width: 1280px) {
