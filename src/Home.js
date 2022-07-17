@@ -13,6 +13,7 @@ import ListContainer from "./ListContainer";
 function Home() {
   const [page, setPage] = useState("home");
   const [pageScroll, setPageScroll] = useState(0);
+  /* const [scrollVelocity, setScrollVelocity] = useState(0); */
   const [backgroundHeight, setBackgroundHeight] = useState(0);
   const [backgroundWidth, setBackgroundWidth] = useState(0);
   const [show, setShow] = useState(false);
@@ -107,16 +108,33 @@ function Home() {
       if (currentHeight > pageHeight) {
         if (page === "projects" || page === "about") {
           const startCoord = event.pageY;
+          const startTime = Date.now();
+          console.log("start time", startTime);
           window.addEventListener("touchmove", (event) => {
-            const endCoord = event.pageY;
+            const endCoord = event.changedTouches[0].pageY;
             const distance = endCoord - startCoord;
+
             const newPageScroll = Math.min(
               Math.max(pageScroll + distance, -maxScroll),
               0
             );
 
             setPageScroll(newPageScroll);
-            currentCont.style.transform = `translate3d(0, ${pageScroll}px, 0)`;
+            currentCont.style.transform = `translate3d(0, ${newPageScroll}px, 0)`;
+
+            /* window.addEventListener("touchend", (event) => {
+              const endTime = Date.now();
+              const totalTime = endTime - startTime;
+              const newScrollVelocity = Math.abs(distance / totalTime);
+              console.log("scrollVelocity", newScrollVelocity);
+              newScrollVelocity > 0.5 &&
+                setPageScroll(
+                  newPageScroll + newPageScroll * newScrollVelocity
+                ) &&
+                (currentCont.style.transform = `translate3d(0, ${
+                  newPageScroll + newPageScroll * newScrollVelocity
+                }px, 0)`);
+            }); */
 
             if (window.innerWidth >= 1280) {
               const devScroll = Math.max(

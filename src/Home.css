@@ -93,9 +93,15 @@ ul {
 
 .transparent-boxes .box {
   position: absolute;
-  opacity: 0.8;
+  opacity: 0.7;
   z-index: 3;
   background-color: hsl(0, 0%, 5%);
+}
+
+@media (min-width: 1280px) {
+  .transparent-boxes .box {
+    opacity: 0.8;
+  }
 }
 
 .toggle-color {
@@ -549,7 +555,7 @@ h2.list-title {
 .about-category {
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .about-category .title {
@@ -560,6 +566,10 @@ h2.list-title {
 }
 
 @media (min-width: 1280px) {
+  .about-category {
+    margin-bottom: 30px;
+  }
+
   .category-content {
     flex-direction: row !important;
     margin-bottom: 60px !important;
@@ -586,7 +596,7 @@ h2.list-title {
 .category-content .section-left {
   width: var(--music-section-left);
   height: fit-content;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 @media (max-width: 1280px) {
