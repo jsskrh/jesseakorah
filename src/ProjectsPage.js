@@ -8,28 +8,28 @@ function Projects() {
       year: "2022",
       type: "Personal",
       link: "https://amazon-clone-160422.herokuapp.com",
-      image: "/amazonClone.png",
+      image: "/images/amazonClone.png",
     },
     {
       title: "Museum of Candy",
       year: "2020",
       type: "Personal",
       link: "https://jsskrh.github.io/museum-of-candy/",
-      image: "/museumOfCandy.png",
+      image: "/images/museumOfCandy.png",
     },
     {
       title: "Color Matching Game",
       year: "2020",
       type: "Personal",
       link: "https://jsskrh.github.io/color-matching-game/",
-      image: "/colorMatchingGame.png",
+      image: "/images/colorMatchingGame.png",
     },
     {
       title: "Todo List",
       year: "2020",
       type: "Personal",
       link: "https://jsskrh.github.io/to-do-list/",
-      image: "/todoList.png",
+      image: "/images/todoList.png",
     },
   ];
   return (
