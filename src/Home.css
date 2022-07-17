@@ -431,19 +431,25 @@ div.visible-page {
 }
 
 .list-container .list-image {
-  /* background: yellow; */
-  width: 201.6px;
-  height: 114.8px;
+  width: 131.04px;
+  height: 74.62px;
   position: absolute;
   margin-top: auto;
   margin-bottom: auto;
   top: 0;
   bottom: 0;
-  left: -201.6px;
-  /* margin-left: -20px; */
+  left: -131.04px;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s ease-in, transform 0.5s;
+}
+
+@media (min-width: 1280px) {
+  .list-container .list-image {
+    width: 201.6px;
+    height: 114.8px;
+    left: -201.6px;
+  }
 }
 
 .list-container .list-image.show {
