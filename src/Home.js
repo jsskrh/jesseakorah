@@ -165,9 +165,11 @@ function Home() {
     { title: "JavaScript", info: "Language" },
     { title: "Noje.js", info: "Framework" },
     { title: "ReactJS", info: "Framework" },
+    { title: "Three.js", info: "Library" },
     { title: "Redux", info: "Library" },
     { title: "Express.js", info: "Framework" },
     { title: "mongoDB", info: "Database" },
+    { title: "Mongoose", info: "Library" },
     { title: "Firebase", info: "Database" },
     { title: "jQuery", info: "Library" },
     { title: "Bootstrap", info: "Framework" },
@@ -293,6 +295,19 @@ function Home() {
                   </li>
                   <li
                     className={
+                      page === "about" ? "nav-item active" : "nav-item"
+                    }
+                  >
+                    <span className="dot">●</span>
+                    <span
+                      className="nav-link"
+                      onClick={() => handlePage("about")}
+                    >
+                      About
+                    </span>
+                  </li>
+                  <li
+                    className={
                       page === "projects" ? "nav-item active" : "nav-item"
                     }
                   >
@@ -313,19 +328,6 @@ function Home() {
                       onClick={() => handlePage("art")}
                     >
                       Art
-                    </span>
-                  </li>
-                  <li
-                    className={
-                      page === "about" ? "nav-item active" : "nav-item"
-                    }
-                  >
-                    <span className="dot">●</span>
-                    <span
-                      className="nav-link"
-                      onClick={() => handlePage("about")}
-                    >
-                      About
                     </span>
                   </li>
                   <li
