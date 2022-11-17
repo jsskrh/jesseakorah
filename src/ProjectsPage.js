@@ -4,6 +4,34 @@ import ListContainer from "./ListContainer";
 function Projects() {
   const projectsArr = [
     {
+      title: "Luxury store app",
+      year: "2022",
+      type: "Personal",
+      link: "#",
+      image: "/images/LuxuryStoreApp.png",
+    },
+    {
+      title: "Lendsqr app",
+      year: "2022",
+      type: "Personal",
+      link: "#",
+      image: "/images/LendsqrApp.png",
+    },
+    {
+      title: "Pokemon game",
+      year: "2022",
+      type: "Personal",
+      link: "#",
+      image: "/images/PokemonGame.png",
+    },
+    {
+      title: "OpenSea clone",
+      year: "2022",
+      type: "Personal",
+      link: "#",
+      image: "/images/OpenSeaClone.png",
+    },
+    {
       title: "Amazon clone",
       year: "2022",
       type: "Personal",
