@@ -15,6 +15,7 @@ function ListItem({ item, row }) {
         className="list-item"
         target="_blank"
         rel="noopener noreferrer"
+        aria-disabled={item.disabled}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >

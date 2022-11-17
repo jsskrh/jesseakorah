@@ -4,25 +4,28 @@ import ListContainer from "./ListContainer";
 function Projects() {
   const projectsArr = [
     {
+      title: "Pokemon game",
+      year: "2022",
+      type: "Personal",
+      link: "https://pokemon-game-171122.netlify.app",
+      image: "/images/PokemonGame.png",
+      disabled: false,
+    },
+    {
       title: "Luxury store app",
       year: "2022",
       type: "Personal",
       link: "#",
       image: "/images/LuxuryStoreApp.png",
+      disabled: true,
     },
     {
       title: "Lendsqr app",
       year: "2022",
       type: "Personal",
-      link: "#",
+      link: "https://github.com/jsskrh/lendsqr-app",
       image: "/images/LendsqrApp.png",
-    },
-    {
-      title: "Pokemon game",
-      year: "2022",
-      type: "Personal",
-      link: "#",
-      image: "/images/PokemonGame.png",
+      disabled: false,
     },
     {
       title: "OpenSea clone",
@@ -30,6 +33,7 @@ function Projects() {
       type: "Personal",
       link: "#",
       image: "/images/OpenSeaClone.png",
+      disabled: false,
     },
     {
       title: "Amazon clone",
@@ -37,6 +41,7 @@ function Projects() {
       type: "Personal",
       link: "https://amazon-clone-160422.herokuapp.com",
       image: "/images/AmazonClone.png",
+      disabled: false,
     },
     {
       title: "YelpCamp",
@@ -44,6 +49,7 @@ function Projects() {
       type: "Personal",
       link: "https://yelpcamp-app-260820.herokuapp.com",
       image: "/images/YelpCamp.png",
+      disabled: false,
     },
     {
       title: "Patatap clone",
@@ -51,6 +57,7 @@ function Projects() {
       type: "Personal",
       link: "https://patatap-clone-jsskrh.netlify.app",
       image: "/images/PatatapClone.png",
+      disabled: false,
     },
     {
       title: "Museum of Candy",
@@ -58,6 +65,7 @@ function Projects() {
       type: "Personal",
       link: "https://jsskrh.github.io/museum-of-candy/",
       image: "/images/MuseumOfCandy.png",
+      disabled: false,
     },
     {
       title: "Color Matching Game",
@@ -65,6 +73,7 @@ function Projects() {
       type: "Personal",
       link: "https://jsskrh.github.io/color-matching-game/",
       image: "/images/ColorMatchingGame.png",
+      disabled: false,
     },
     {
       title: "Todo List",
@@ -72,6 +81,7 @@ function Projects() {
       type: "Personal",
       link: "https://jsskrh.github.io/to-do-list/",
       image: "/images/TodoList.png",
+      disabled: false,
     },
   ];
   return (
