@@ -28,7 +28,7 @@ const Particles = (props) => {
     const elapsedTime = clock.getElapsedTime();
     mesh.current.rotation.y = randY * elapsedTime * 0.1;
     mesh.current.rotation.x = randX * elapsedTime * 0.1;
-    if (pointer.x > 0) {
+    if (pointer.x !== 0) {
       mesh.current.rotation.x = -pointer.y * (elapsedTime * 0.0024);
       mesh.current.rotation.y = -pointer.x * (elapsedTime * 0.0024);
     }
