@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Home from "./Home";
-import Layout from "./Layout";
+import Home from "./pages/Home";
+import Layout from "./Layout/Layout";
 
 function App() {
   return (

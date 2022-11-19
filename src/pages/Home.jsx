@@ -1,15 +1,13 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import Scene from "./Scene";
-import Cursor from "./Cursor";
-import "./Home.css";
-import musicLibrary from "./musicLibrary";
+import Cursor from "../Cursor";
+import "../styles/Home.css";
+import musicLibrary from "../musicLibrary";
 import _ from "lodash";
-import Projects from "./ProjectsPage";
-import Info from "./InfoPage";
-import HomePage from "./HomePage";
-import LandingPage from "./LandingPage";
-import ListContainer from "./ListContainer";
-import Header from "./Header";
+import Projects from "../ProjectsPage";
+import Info from "../InfoPage";
+import LandingPage from "../LandingPage";
+import ListContainer from "../ListContainer";
+import Header from "../Header";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -294,85 +292,6 @@ function Home() {
 
     //     <div className="page-inner">
     //       <div className="content">
-    //         <div className="header-container">
-    //           <Header />
-    //           <div className="nav">
-    //             <ul>
-    //               <li
-    //                 className={page === "home" ? "nav-item active" : "nav-item"}
-    //               >
-    //                 <span className="dot">●</span>
-    //                 <span
-    //                   className="nav-link"
-    //                   onClick={() => handlePage("home")}
-    //                 >
-    //                   Home
-    //                 </span>
-    //               </li>
-    //               <li
-    //                 className={
-    //                   page === "about" ? "nav-item active" : "nav-item"
-    //                 }
-    //               >
-    //                 <span className="dot">●</span>
-    //                 <span
-    //                   className="nav-link"
-    //                   onClick={() => handlePage("about")}
-    //                 >
-    //                   About
-    //                 </span>
-    //               </li>
-    //               <li
-    //                 className={
-    //                   page === "projects" ? "nav-item active" : "nav-item"
-    //                 }
-    //               >
-    //                 <span className="dot">●</span>
-    //                 <span
-    //                   className="nav-link"
-    //                   onClick={() => handlePage("projects")}
-    //                 >
-    //                   Projects
-    //                 </span>
-    //               </li>
-    //               <li
-    //                 className={page === "art" ? "nav-item active" : "nav-item"}
-    //               >
-    //                 <span className="dot">●</span>
-    //                 <span
-    //                   className="nav-link"
-    //                   onClick={() => handlePage("art")}
-    //                 >
-    //                   Art
-    //                 </span>
-    //               </li>
-    //               <li
-    //                 className={page === "info" ? "nav-item active" : "nav-item"}
-    //               >
-    //                 <span className="dot">●</span>
-    //                 <span
-    //                   className="nav-link"
-    //                   onClick={() => handlePage("info")}
-    //                 >
-    //                   Info
-    //                 </span>
-    //               </li>
-    //               <li
-    //                 className={
-    //                   page === "contact" ? "nav-item active" : "nav-item"
-    //                 }
-    //               >
-    //                 <span className="dot">●</span>
-    //                 <span
-    //                   className="nav-link"
-    //                   onClick={() => handlePage("contact")}
-    //                 >
-    //                   Contact
-    //                 </span>
-    //               </li>
-    //             </ul>
-    //           </div>
-    //         </div>
     //         <div className="content-container">
     //           {/* <div
     //             className={
@@ -489,7 +408,21 @@ function Home() {
     //     </div>
     //   </div>
     // </div>
-    <div></div>
+    <div
+      /* className="home page-content visible-page" */ style={{}}
+      className="home-page"
+    >
+      <div className="page-content">
+        <p className="content-text">
+          Raised in Lagos, Nigeria, I'm a creative fullstack developer, with
+          keen interest in exploring the artistic possibilies of web
+          development. I experiment and use unique designs in the building of
+          products and the creation of immersive web experiences. Thus I am
+          constantly learning and testing the limits of web element manipulation
+          in the pursuit of new artistic expressions.
+        </p>
+      </div>
+    </div>
   );
 }
 

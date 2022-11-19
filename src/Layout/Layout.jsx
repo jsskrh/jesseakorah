@@ -1,10 +1,9 @@
 import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import Cursor from "./Cursor";
-import Header from "./Header";
-import LandingPage from "./LandingPage";
-import Scene from "./Scene";
-import "./Layout.css";
+import Cursor from "../Cursor";
+import Header from "../Header";
+import LandingPage from "../LandingPage";
+import Scene from "../components/Background/Scene";
+import "../styles/Layout.css";
 import Nav from "./Nav";
 
 const Layout = ({ children }) => {
@@ -52,7 +51,7 @@ const Layout = ({ children }) => {
       </div>
       <div className="page-container" ref={pageRef}>
         <div className="background" ref={backgroundRef}>
-          <Scene />
+          <Scene color={color} />
         </div>
 
         <div className="page-inner">

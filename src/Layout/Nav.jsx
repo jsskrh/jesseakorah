@@ -14,7 +14,10 @@ const Nav = () => {
     <div className="nav">
       <ul>
         {navItems.map((item) => (
-          <li className={page === item ? "nav-item active" : "nav-item"}>
+          <li
+            className={page === item ? "nav-item active" : "nav-item"}
+            key={item}
+          >
             <span className="dot">●</span>
             <Link to={`/${item}`}>
               <span className="nav-link" onClick={() => handlePage(item)}>

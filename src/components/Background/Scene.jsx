@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import Sphere from "./Sphere";
 import Particles from "./Particles";
 
-function Scene() {
+function Scene({ color }) {
   return (
     <Canvas className="scene">
       <Sphere />

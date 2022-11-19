@@ -1,14 +1,14 @@
+:root {
+  --music-section-left: 276px;
+  --music-section-left-pad: 76px;
+  --gap: 30px;
+}
+
 h1,
 p,
 span,
 a {
   pointer-events: auto;
-}
-
-:root {
-  --music-section-left: 276px;
-  --music-section-left-pad: 76px;
-  --gap: 30px;
 }
 
 .page {
@@ -330,4 +330,13 @@ ul {
 .nav ul li.active a,
 .nav ul li.active .nav-link {
   visibility: hidden;
+}
+
+.content-container {
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  padding: inherit;
+  position: absolute;
 }
