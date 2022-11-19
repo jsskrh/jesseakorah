@@ -3,13 +3,7 @@ import { Link } from "react-router-dom";
 
 const navItems = ["home", "about", "projects", "art", "info", "contact"];
 
-const Nav = ({ page, setPage }) => {
-  // const [page, setPage] = useState("home");
-
-  const handlePage = (page) => {
-    setPage(page);
-  };
-
+const Nav = ({ page }) => {
   return (
     <div className="nav">
       <ul>
@@ -20,9 +14,7 @@ const Nav = ({ page, setPage }) => {
           >
             <span className="dot">●</span>
             <Link to={`/${item}`}>
-              <span className="nav-link" onClick={() => handlePage(item)}>
-                {item}
-              </span>
+              <span className="nav-link">{item}</span>
             </Link>
           </li>
         ))}

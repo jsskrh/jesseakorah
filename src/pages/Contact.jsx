@@ -15,16 +15,18 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
-      <div className="email-container">
-        <h3 className="top">Send me a message</h3>
-        <span
-          className="bottom"
-          onClick={() => copyToClipboard("jesseakorah@gmail.com")}
-          ref={emailRef}
-        >
-          jesseakorah@gmail.com
-        </span>
-        <div className="underline"></div>
+      <div className="page-content">
+        <div className="email-container">
+          <h3 className="top">Send me a message</h3>
+          <span
+            className="bottom"
+            onClick={() => copyToClipboard("jesseakorah@gmail.com")}
+            ref={emailRef}
+          >
+            jesseakorah@gmail.com
+          </span>
+          <div className="underline"></div>
+        </div>
       </div>
     </div>
   );

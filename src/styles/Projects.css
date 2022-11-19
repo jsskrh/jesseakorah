@@ -1,0 +1,21 @@
+.projects-page {
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.projects-page .page-content {
+  flex-direction: column;
+  padding: 83px 0;
+}
+
+@media (min-width: 1280px) {
+  .projects-page .page-content {
+    padding: 119px 0;
+  }
+}
+
+.projects-page .second {
+  margin-top: 100px;
+}

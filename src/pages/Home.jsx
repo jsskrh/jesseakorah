@@ -2,11 +2,8 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import "../styles/Home.css";
 import musicLibrary from "../musicLibrary";
 import _ from "lodash";
-import Projects from "../ProjectsPage";
-import Info from "../InfoPage";
 import LandingPage from "../LandingPage";
-import ListContainer from "../ListContainer";
-import Header from "../Header";
+import ListContainer from "../components/ListContainer";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 

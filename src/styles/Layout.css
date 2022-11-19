@@ -102,7 +102,7 @@ ul {
 .transparent-boxes .box {
   position: absolute;
   opacity: 0.7;
-  z-index: 3;
+  z-index: 4;
   background-color: hsl(0, 0%, 5%);
 }
 
@@ -339,6 +339,133 @@ ul {
   display: flex;
   padding: inherit;
   position: absolute;
+}
+
+.list-container {
+  flex: 1;
+  margin-top: 20px;
+  row-gap: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-container.row {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.list-container.row li {
+  margin-left: 20px;
+}
+
+.list-container.row .list-title {
+  font-size: 25px;
+}
+
+@media (min-width: 1280px) {
+  .list-container {
+    margin-top: 50px;
+  }
+
+  .list-container.row .list-title {
+    font-size: 45px;
+  }
+}
+
+.list-container li {
+  width: fit-content;
+  margin-left: auto;
+  display: flex;
+  position: relative;
+}
+
+.list-container .list-image {
+  width: 131.04px;
+  height: 74.62px;
+  position: absolute;
+  margin-top: auto;
+  margin-bottom: auto;
+  top: 0;
+  bottom: 0;
+  left: -131.04px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in, transform 0.5s;
+}
+
+@media (min-width: 1280px) {
+  .list-container .list-image {
+    width: 201.6px;
+    height: 114.8px;
+    left: -201.6px;
+  }
+}
+
+.list-container .list-image.show {
+  opacity: 1;
+  z-index: 4;
+  visibility: visible;
+  transform: translateX(-50%) scale(1.5);
+}
+
+.list-container .list-image img {
+  height: 100%;
+  width: 100%;
+}
+
+h1.list-title,
+h2.list-title {
+  font-weight: 200;
+  font-size: 15px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.list-container .list-item {
+  transition-property: opacity;
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0.1, 0.4, 0.2, 1);
+  position: relative;
+  z-index: 3;
+}
+
+.list-container .list-item:hover {
+  opacity: 0.25;
+}
+
+@media (min-width: 1280px) {
+  .list-container .list-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    column-gap: 15px;
+  }
+}
+
+.list-container .list-title {
+  font-weight: 100;
+  font-size: 30px;
+  text-align: right;
+  line-height: 30px;
+}
+
+@media (min-width: 1280px) {
+  .list-container .list-title {
+    font-size: 60px;
+    line-height: 62px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .list-container .list-item {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .list-container .list-info {
+    align-self: flex-end;
+  }
 }
 
 .cursor {

@@ -4,12 +4,12 @@ import ListItem from "./ListItem";
 function ListContainer({ listArr, projects, music, row }) {
   return (
     <ul className={row ? "list-container row" : "list-container"}>
-      {listArr.map((item) => {
+      {listArr.map((item, index) => {
         projects && (item.info = item.year + " / " + item.type);
         music &&
           (item.title = item.name) &&
           (item.info = Math.round(item.time / 3600) + " hours");
-        return <ListItem item={item} row={row} />;
+        return <ListItem key={index} item={item} row={row} />;
       })}
     </ul>
   );

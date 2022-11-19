@@ -1,13 +1,12 @@
 import React, { useRef, useState } from "react";
 import Cursor from "../components/Cursor";
-import Header from "../Header";
+import Header from "../components/Header";
 import LandingPage from "../LandingPage";
 import Scene from "./Background/Scene";
 import "../styles/Layout.css";
 import Nav from "./Nav";
 
-const Layout = ({ children }) => {
-  const [page, setPage] = useState("home");
+const Layout = ({ children, page }) => {
   const [show, setShow] = useState(false);
   const [copied, setCopied] = useState(false);
   const [color, setColor] = useState(false);
@@ -58,7 +57,7 @@ const Layout = ({ children }) => {
           <div className="content">
             <div className="header-container">
               <Header />
-              <Nav page={page} setPage={setPage} />
+              <Nav page={page} />
             </div>
             <div className="content-container">{children}</div>
           </div>
