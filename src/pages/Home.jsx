@@ -258,15 +258,7 @@ function Home() {
     //     <div className="page-inner">
     //       <div className="content">
     //         <div className="content-container">
-    //           {/* <div
-    //             className={
-    //               page === "home"
-    //                 ? "home page-content visible-page"
-    //                 : "home page-content"
-    //             }
-    //           >
-    //             <HomePage />
-    //           </div>
+    //           {/*
     //           <div
     //             className={
     //               page === "projects"
@@ -285,15 +277,6 @@ function Home() {
     //             }
     //           >
     //             <Info />
-    //           </div>
-    //           <div
-    //             className={
-    //               page === "art"
-    //                 ? "art page-content visible-page"
-    //                 : "art page-content"
-    //             }
-    //           >
-    //             <div className="text-container">Coming Soon</div>
     //           </div>
     //           <div
     //             className={

@@ -8,14 +8,14 @@
   justify-content: flex-end;
 }
 
-.content-text {
+.home-page .content-text {
   width: 200px;
   height: fit-content;
   line-height: 22px;
 }
 
 @media screen and (max-width: 400px) {
-  .content-text {
+  .home-page .content-text {
     width: 175px;
     font-size: 13px;
     line-height: 18px;

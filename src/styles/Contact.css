@@ -14,12 +14,12 @@
   align-items: center;
 }
 
-.top {
+.email-container .top {
   margin-bottom: 15px;
   text-transform: uppercase;
 }
 
-.bottom {
+.email-container .bottom {
   font-size: 30px;
   font-weight: 200;
 }
