@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import Cursor from "../Cursor";
 import Header from "../Header";
 import LandingPage from "../LandingPage";
-import Scene from "../components/Background/Scene";
+import Scene from "./Background/Scene";
 import "../styles/Layout.css";
 import Nav from "./Nav";
 
