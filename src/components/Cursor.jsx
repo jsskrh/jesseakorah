@@ -47,7 +47,7 @@ function Cursor({ show, page, copied, email }) {
 
   return (
     <div
-      className={"cursor " + (show ? "show " : " ") + (click ? "click " : " ")}
+      className={"cursor " + (show ? "show " : "") + (click ? "click " : "")}
       ref={cursorRef}
       style={{
         left: `${position.x}px`,

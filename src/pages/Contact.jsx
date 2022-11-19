@@ -3,7 +3,6 @@ import "../styles/Contact.css";
 
 const Contact = () => {
   const emailRef = useRef();
-  const email = emailRef?.current;
 
   const copyToClipboard = (text) => {
     const ta = document.createElement("textarea");

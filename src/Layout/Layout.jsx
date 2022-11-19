@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import Cursor from "../Cursor";
+import Cursor from "../components/Cursor";
 import Header from "../Header";
 import LandingPage from "../LandingPage";
 import Scene from "./Background/Scene";
@@ -15,8 +15,8 @@ const Layout = ({ children }) => {
   const backgroundRef = useRef(null);
   const pageRef = useRef(null);
 
-  const emailRef = useRef(null);
-  const email = emailRef?.current;
+  // const emailRef = useRef(null);
+  // const email = emailRef?.current;
 
   return (
     <div className={color ? "page light" : "page dark"}>
@@ -58,7 +58,7 @@ const Layout = ({ children }) => {
           <div className="content">
             <div className="header-container">
               <Header />
-              <Nav />
+              <Nav page={page} setPage={setPage} />
             </div>
             <div className="content-container">{children}</div>
           </div>

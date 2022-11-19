@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const navItems = ["home", "about", "projects", "art", "info", "contact"];
 
-const Nav = () => {
-  const [page, setPage] = useState("home");
+const Nav = ({ page, setPage }) => {
+  // const [page, setPage] = useState("home");
 
   const handlePage = (page) => {
     setPage(page);

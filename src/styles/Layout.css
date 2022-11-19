@@ -340,3 +340,46 @@ ul {
   padding: inherit;
   position: absolute;
 }
+
+.cursor {
+  width: 0px;
+  height: 0px;
+  background: hsl(0, 0%, 5%);
+  border-radius: 100%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: hsl(0, 0%, 90%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease,
+    transform 0.3s ease;
+  opacity: 0;
+}
+
+.page.dark .cursor {
+  color: hsl(0, 0%, 5%);
+  background: hsl(0, 0%, 90%);
+}
+
+.cursor.show {
+  opacity: 1;
+  width: 80px;
+  height: 80px;
+}
+
+.cursor.click {
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+.cursor span {
+  width: fit-content;
+  display: none;
+  z-index: 4;
+}
+
+.cursor span.show {
+  display: block;
+}
