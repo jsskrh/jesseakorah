@@ -223,6 +223,10 @@ ul {
   width: 100%;
 }
 
+.scene {
+  z-index: 1;
+}
+
 .page-inner {
   display: flex;
   flex-direction: column;
@@ -387,7 +391,6 @@ div.visible-page {
 
 .projects {
   flex-direction: column;
-  /* transition: all; */
   padding: 83px 0;
 }
 
@@ -579,7 +582,6 @@ h2.list-title {
   .category-content {
     flex-direction: row !important;
     margin-bottom: 60px !important;
-    /* margin-right: calc(var(--music-section-left-pad) / 2); */
   }
 
   .category-content .left-text {
@@ -864,7 +866,6 @@ h2.list-title {
 
 .cursor.click {
   transform: translate(-50%, -50%) scale(1.5);
-  /* background-color: hsl(0, 0%, 5%); */
 }
 
 .cursor span {

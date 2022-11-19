@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Canvas from "./Canvas";
+import Scene from "./Scene";
 import Cursor from "./Cursor";
 import "./Home.css";
 import musicLibrary from "./musicLibrary";
@@ -272,12 +272,9 @@ function Home() {
       </div>
       <div className="page-container" ref={pageRef}>
         <div className="background" ref={backgroundRef}>
-          <Canvas
-            height={backgroundHeight}
-            width={backgroundWidth}
-            color={color}
-          />
+          <Scene />
         </div>
+
         <div className="page-inner">
           <div className="content">
             <div className="header-container">
