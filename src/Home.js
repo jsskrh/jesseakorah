@@ -280,7 +280,7 @@ function Home() {
             <div className="header-container">
               <div className="header">
                 <h1 className="title">Jesse K. Akorah</h1>
-                <p className="label">Full Stack Developer</p>
+                <p className="label">Software Engineer</p>
               </div>
               <div className="nav">
                 <ul>
