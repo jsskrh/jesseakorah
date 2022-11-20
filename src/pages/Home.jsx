@@ -258,25 +258,6 @@ function Home() {
     //           {/*
     //           <div
     //             className={
-    //               page === "projects"
-    //                 ? "projects page-content visible-page"
-    //                 : "projects page-content"
-    //             }
-    //             ref={projectsRef}
-    //           >
-    //             <Projects />
-    //           </div>
-    //           <div
-    //             className={
-    //               page === "info"
-    //                 ? "info page-content visible-page"
-    //                 : "info page-content"
-    //             }
-    //           >
-    //             <Info />
-    //           </div>
-    //           <div
-    //             className={
     //               page === "about"
     //                 ? "about page-content visible-page"
     //                 : "about page-content"

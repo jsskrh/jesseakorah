@@ -26,7 +26,7 @@ const devArr = [
   { title: "Blazor", info: "Framework" },
 ];
 
-const About = () => {
+const About = React.forwardRef((props, ref) => {
   // sort decending
   /* const mostPlayed = [...musicLibrary].sort((a, b) => b.Plays - a.Plays); */
 
@@ -46,7 +46,7 @@ const About = () => {
 
   return (
     <div className="about-page">
-      <div className="page-content">
+      <div className="page-content" ref={ref}>
         <div className="about-category developer">
           <h1 className="list-title">Languages & Technologies</h1>
           <div className="category-content">
@@ -94,6 +94,6 @@ const About = () => {
       </div>
     </div>
   );
-};
+});
 
 export default About;

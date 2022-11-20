@@ -50,7 +50,7 @@ const Layout = ({ children, page }) => {
       </div>
       <div className="page-container" ref={pageRef}>
         <div className="background" ref={backgroundRef}>
-          <Scene color={color} />
+          {/* <Scene color={color} /> */}
         </div>
 
         <div className="page-inner">
