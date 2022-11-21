@@ -1,32 +1,12 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import musicLibrary from "../musicLibrary";
-import _ from "lodash";
 import ListContainer from "../components/ListContainer";
 import "../styles/About.css";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import data from "../data";
 
-const devArr = [
-  { title: "JavaScript", info: "Language" },
-  { title: "TypeScript", info: "Language" },
-  { title: "Node.js", info: "Framework" },
-  { title: "ReactJS", info: "Framework" },
-  { title: "Next.js", info: "Framework" },
-  { title: "Vue.js", info: "Framework" },
-  { title: "Three.js", info: "Library" },
-  { title: "Redux", info: "Library" },
-  { title: "Express.js", info: "Framework" },
-  { title: "mongoDB", info: "Database" },
-  { title: "Mongoose", info: "Library" },
-  { title: "Firebase", info: "Database" },
-  { title: "PostgreSQL", info: "Database" },
-  { title: "jQuery", info: "Library" },
-  { title: "TailwindCSS", info: "Framework" },
-  { title: "Bootstrap", info: "Framework" },
-  { title: "Semantic UI", info: "Framework" },
-  { title: "C#", info: "Language" },
-  { title: "Blazor", info: "Framework" },
-];
+const devArr = data.devList;
+const musicArr = data.musicList;
 
 const About = React.forwardRef((props, ref) => {
   const [windowSize, setWindowSize] = useState(getWindowSize());
@@ -120,20 +100,6 @@ const About = React.forwardRef((props, ref) => {
     };
   }, [windowSize]);
 
-  //group by artist
-  const artists = Object.values(_.groupBy(musicLibrary, "Artist"));
-  const artistHours = artists.map((artist) => {
-    const artistName = artist[0].Artist;
-    var listeningTime = 0;
-    artist.map((song) => {
-      var songTime = song.Time * song.Plays;
-      return (listeningTime += songTime);
-    });
-    return { name: artistName, time: listeningTime };
-  });
-  const mostListened = [...artistHours].sort((a, b) => b.time - a.time);
-  const mostListened10 = mostListened.slice(0, 10);
-
   return (
     <div className="about-page">
       <div className="page-content asscroll" ref={ref}>
@@ -163,7 +129,7 @@ const About = React.forwardRef((props, ref) => {
                 according to my Apple Music listening time through the years.
               </p>
             </div>
-            <ListContainer listArr={mostListened10} music />
+            <ListContainer listArr={musicArr} music />
           </div>
         </div>
         <div className="about-category books">
