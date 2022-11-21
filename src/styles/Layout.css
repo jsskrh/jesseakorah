@@ -1,7 +1,15 @@
 :root {
-  --music-section-left: 276px;
-  --music-section-left-pad: 76px;
-  --gap: 30px;
+  --music-section-left: 230px;
+  --music-section-left-pad: 30px;
+  --gap: 15px;
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --gap: 30px;
+    --music-section-left: 276px;
+    --music-section-left-pad: 76px;
+  }
 }
 
 h1,
@@ -205,12 +213,6 @@ ul {
 
 .page.dark .page-container {
   border: 0.5px solid hsl(0, 0%, 90%);
-}
-
-@media (min-width: 1280px) {
-  :root {
-    --gap: 30px;
-  }
 }
 
 .background {

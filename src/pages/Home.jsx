@@ -203,18 +203,18 @@ function Home() {
   const mostListened = [...artistHours].sort((a, b) => b.time - a.time);
   const mostListened10 = mostListened.slice(0, 10);
 
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: ".developer",
-        start: "top top",
-        end: "bottom bottom",
-        pin: ".left-section",
-      });
-    }, aboutRef);
+  // useLayoutEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     ScrollTrigger.create({
+  //       trigger: ".developer",
+  //       start: "top top",
+  //       end: "bottom bottom",
+  //       pin: ".left-section",
+  //     });
+  //   }, aboutRef);
 
-    return () => ctx.revert();
-  }, []);
+  //   return () => ctx.revert();
+  // }, []);
 
   return (
     // <div className={color ? "page light" : "page dark"}>

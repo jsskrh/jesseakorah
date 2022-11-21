@@ -88,7 +88,7 @@ const projectsArr = [
 const Projects = React.forwardRef((props, ref) => {
   return (
     <div className="projects-page">
-      <div className="page-content" ref={ref}>
+      <div className="page-content asscroll" ref={ref}>
         <div className="project-section">
           <h2 className="list-title">Develop</h2>
           <ListContainer listArr={projectsArr} projects />

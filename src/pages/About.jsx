@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import musicLibrary from "../musicLibrary";
 import _ from "lodash";
 import ListContainer from "../components/ListContainer";
 import "../styles/About.css";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 const devArr = [
   { title: "JavaScript", info: "Language" },
@@ -27,8 +29,96 @@ const devArr = [
 ];
 
 const About = React.forwardRef((props, ref) => {
-  // sort decending
-  /* const mostPlayed = [...musicLibrary].sort((a, b) => b.Plays - a.Plays); */
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+  const currentPosRef = useRef(null);
+  const containerElementRef = useRef(null);
+  const devRef = useRef(null);
+  const devLeftRef = useRef(null);
+  const musicRef = useRef(null);
+  const musicLeftRef = useRef(null);
+
+  useEffect(() => {
+    currentPosRef.current = props.currentPos;
+    containerElementRef.current = props.getContainer().current;
+  }, [props]);
+
+  function getWindowSize() {
+    const { innerWidth, innerHeight } = window;
+    return { innerWidth, innerHeight };
+  }
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
+
+  useLayoutEffect(() => {
+    if (windowSize.innerWidth < 768) {
+      return;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    ScrollTrigger.defaults({
+      scroller: containerElementRef.current,
+    });
+
+    ScrollTrigger.scrollerProxy(containerElementRef.current, {
+      scrollTop(value) {
+        return arguments.length
+          ? (currentPosRef.current = value)
+          : currentPosRef.current;
+      },
+      getBoundingClientRect() {
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight,
+        };
+      },
+    });
+
+    gsap.ticker.add(ScrollTrigger.update);
+
+    const context = ref.current;
+    const devCat = devRef.current;
+    const devCatLeft = devLeftRef.current;
+    const musicCat = musicRef.current;
+    const musicCatLeft = musicLeftRef.current;
+
+    let ctx = gsap.context(() => {
+      gsap.to(devCatLeft, {
+        scrollTrigger: {
+          trigger: devCat,
+          start: "top 180px",
+          end: "90px top",
+          pin: devCatLeft,
+        },
+      });
+
+      gsap.to(musicCatLeft, {
+        scrollTrigger: {
+          trigger: musicCat,
+          start: "top 180px",
+          end: "90px top",
+          pin: musicCatLeft,
+        },
+      });
+    }, context);
+
+    return () => {
+      ctx.revert();
+      gsap.ticker.remove(ScrollTrigger.update);
+    };
+  }, [windowSize]);
 
   //group by artist
   const artists = Object.values(_.groupBy(musicLibrary, "Artist"));
@@ -46,11 +136,11 @@ const About = React.forwardRef((props, ref) => {
 
   return (
     <div className="about-page">
-      <div className="page-content" ref={ref}>
-        <div className="about-category developer">
+      <div className="page-content asscroll" ref={ref}>
+        <div className="about-category developer" id="devCategory" ref={devRef}>
           <h1 className="list-title">Languages & Technologies</h1>
           <div className="category-content">
-            <div className="section-left">
+            <div className="section-left" id="devLeft" ref={devLeftRef}>
               <h3 className="left-title">DEVELOPMENT</h3>
               <p className="left-text">
                 I am a fullstack developer who primarily uses the MERN stack,
@@ -61,10 +151,10 @@ const About = React.forwardRef((props, ref) => {
             <ListContainer listArr={devArr} row={true} />
           </div>
         </div>
-        <div className="about-category music">
+        <div className="about-category music" ref={musicRef}>
           <h1 className="list-title">Music</h1>
           <div className="category-content">
-            <div className="section-left">
+            <div className="section-left" ref={musicLeftRef}>
               <h3 className="left-title">ARTISTS</h3>
               <p className="left-text">
                 I enjoy music and I enjoy discovering music more. I listen to a

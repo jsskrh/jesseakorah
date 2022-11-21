@@ -15,10 +15,15 @@ import Art from "./pages/Art";
 import Info from "./pages/Info";
 import Contact from "./pages/Contact";
 import Layout from "./Layout/Layout";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 function App() {
+  const appRef = useRef();
   const projectsRef = useRef();
   const aboutRef = useRef();
+
+  const [currentPos, setCurrentPos] = useState(0);
 
   let location = useLocation();
   const page =
@@ -35,36 +40,57 @@ function App() {
     if (page === "projects") {
       asscroll.enable({
         newScrollElements: projectsRef.current,
-        reset: true,
+        // reset: true,
       });
     } else if (page === "about") {
       asscroll.enable({
         newScrollElements: aboutRef.current,
-        reset: true,
+        // reset: true,
       });
     }
 
-    let frame;
-    requestAnimationFrame(onRaf);
-    function onRaf() {
-      asscroll.update();
-      frame = requestAnimationFrame(onRaf);
-    }
+    // newScrollElements: appRef.current.querySelectorAll(".asscroll"),
+
+    console.log(appRef.current.querySelectorAll(".asscroll"));
+
+    const scrollSetter = () => {
+      return setCurrentPos(asscroll.currentPos);
+    };
+
+    gsap.ticker.add(asscroll.update);
+    gsap.ticker.add(scrollSetter);
 
     return () => {
       asscroll.disable();
-      cancelAnimationFrame(frame);
+      gsap.ticker.remove(asscroll.update);
+      gsap.ticker.remove(scrollSetter);
       asscroll = {};
     };
   }, [page]);
 
+  const getContainer = () => {
+    return appRef;
+  };
+
   return (
-    <div className="app" asscroll-container="true">
+    <div className="app" asscroll-container="true" ref={appRef}>
       <div className="main">
         <Layout page={page}>
           <Routes>
             <Route path="/*" element={<Home />} />
-            <Route path="about" element={<About ref={aboutRef} />} />
+            <Route
+              path="about"
+              element={
+                <About
+                  ref={aboutRef}
+                  currentPos={currentPos}
+                  setCurrentPos={setCurrentPos}
+                  getContainer={getContainer} /* containerElement={
+                    appRef.current
+                  } */
+                />
+              }
+            />
             <Route path="projects" element={<Projects ref={projectsRef} />} />
             <Route path="art" element={<Art />} />
             <Route path="info" element={<Info />} />
