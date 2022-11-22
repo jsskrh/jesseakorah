@@ -13,7 +13,7 @@ const Sphere = (props) => {
     <points {...props} ref={mesh}>
       {/* <torusGeometry args={[0.7, 0.2, 16, 100]} /> */}
       <torusGeometry args={[2.1, 0.6, 30, 200]} />
-      <pointsMaterial size={0.006} />
+      <pointsMaterial size={0.006} color={props.color} />
     </points>
   );
 };

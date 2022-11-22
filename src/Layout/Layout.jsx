@@ -17,6 +17,10 @@ const Layout = ({ children, page }) => {
   // const emailRef = useRef(null);
   // const email = emailRef?.current;
 
+  const colorSetter = () => {
+    return color ? 0x0d0d0d : 0xe6e6e6;
+  };
+
   return (
     <div className={color ? "page light" : "page dark"}>
       <LandingPage />
@@ -50,7 +54,7 @@ const Layout = ({ children, page }) => {
       </div>
       <div className="page-container" ref={pageRef}>
         <div className="background" ref={backgroundRef}>
-          {/* <Scene color={color} /> */}
+          <Scene color={colorSetter()} />
         </div>
 
         <div className="page-inner">

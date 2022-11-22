@@ -44,7 +44,11 @@ const Particles = (props) => {
           itemSize={3}
         />
       </bufferGeometry>
-      <pointsMaterial size={0.005} /* map={cross} */ transparent={true} />
+      <pointsMaterial
+        size={0.005}
+        /* map={cross} */ transparent={true}
+        color={props.color}
+      />
       {/* <Rig /> */}
     </points>
   );
