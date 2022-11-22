@@ -35,6 +35,7 @@ const data = {
     { title: "Semantic UI", info: "Framework" },
     { title: "C#", info: "Language" },
     { title: "Blazor", info: "Framework" },
+    { title: "Wordpress", info: "Content Management System" },
   ],
   musicList: mostListened10,
 };

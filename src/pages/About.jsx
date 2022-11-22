@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ListContainer from "../components/ListContainer";
 import "../styles/About.css";
 import gsap from "gsap";
@@ -39,7 +39,7 @@ const About = React.forwardRef((props, ref) => {
     };
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (windowSize.innerWidth < 768) {
       return;
     }
@@ -75,30 +75,52 @@ const About = React.forwardRef((props, ref) => {
     const musicCatLeft = musicLeftRef.current;
 
     let ctx = gsap.context(() => {
-      gsap.to(devCatLeft, {
-        scrollTrigger: {
-          trigger: devCat,
-          start: "top 180px",
-          end: "90px top",
-          pin: devCatLeft,
-        },
-      });
+      if (windowSize.innerWidth < 1280) {
+        gsap.to(devCatLeft, {
+          scrollTrigger: {
+            trigger: devCat,
+            start: "top 149px",
+            end: "bottom-=345px top",
+            pin: devCatLeft,
+            markers: true,
+          },
+        });
 
-      gsap.to(musicCatLeft, {
-        scrollTrigger: {
-          trigger: musicCat,
-          start: "top 180px",
-          end: "90px top",
-          pin: musicCatLeft,
-        },
-      });
+        gsap.to(musicCatLeft, {
+          scrollTrigger: {
+            trigger: musicCat,
+            start: "top 180px",
+            end: "bottom-=413px top",
+            pin: musicCatLeft,
+          },
+        });
+      } else {
+        gsap.to(devCatLeft, {
+          scrollTrigger: {
+            trigger: devCat,
+            start: "top 180px",
+            end: "bottom-=478px top",
+            pin: devCatLeft,
+            markers: true,
+          },
+        });
+
+        gsap.to(musicCatLeft, {
+          scrollTrigger: {
+            trigger: musicCat,
+            start: "top 180px",
+            end: "bottom-=555px top",
+            pin: musicCatLeft,
+          },
+        });
+      }
     }, context);
 
     return () => {
       ctx.revert();
       gsap.ticker.remove(ScrollTrigger.update);
     };
-  }, [windowSize]);
+  }, [windowSize, ref]);
 
   return (
     <div className="about-page">

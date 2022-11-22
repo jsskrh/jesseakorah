@@ -1,12 +1,6 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
-import {
-  Routes,
-  Route,
-  useParams,
-  useLocation,
-  Router,
-} from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import ASScroll from "@ashthornton/asscroll";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -16,7 +10,6 @@ import Info from "./pages/Info";
 import Contact from "./pages/Contact";
 import Layout from "./Layout/Layout";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 
 function App() {
   const appRef = useRef();
@@ -29,12 +22,7 @@ function App() {
   const page =
     location.pathname.slice(1) === "" ? "home" : location.pathname.slice(1);
 
-  const scrollHandler = () => {
-    const asscroll = new ASScroll();
-    asscroll.enable({ newScrollElements: projectsRef.current });
-  };
-
-  useLayoutEffect(() => {
+  useEffect(() => {
     let asscroll = new ASScroll({ disableRaf: true });
 
     if (page === "projects") {
