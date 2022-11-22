@@ -396,11 +396,21 @@ ul {
   transition: opacity 0.3s ease-in, transform 0.5s;
 }
 
+.list-container .list-image.music {
+  width: 75px;
+  height: 75px;
+}
+
 @media (min-width: 1280px) {
   .list-container .list-image {
     width: 201.6px;
     height: 114.8px;
     left: -201.6px;
+  }
+
+  .list-container .list-image.music {
+    width: 160px;
+    height: 160px;
   }
 }
 
@@ -412,8 +422,8 @@ ul {
 }
 
 .list-container .list-image img {
-  height: 100%;
-  width: 100%;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 h1.list-title,

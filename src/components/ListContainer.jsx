@@ -9,7 +9,7 @@ function ListContainer({ listArr, projects, music, row }) {
         music &&
           (item.title = item.name) &&
           (item.info = Math.round(item.time / 3600) + " hours");
-        return <ListItem key={index} item={item} row={row} />;
+        return <ListItem key={index} item={item} row={row} music={music} />;
       })}
     </ul>
   );
