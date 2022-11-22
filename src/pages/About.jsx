@@ -82,7 +82,6 @@ const About = React.forwardRef((props, ref) => {
             start: "top 149px",
             end: "bottom-=345px top",
             pin: devCatLeft,
-            markers: true,
           },
         });
 
@@ -101,7 +100,6 @@ const About = React.forwardRef((props, ref) => {
             start: "top 180px",
             end: "bottom-=478px top",
             pin: devCatLeft,
-            markers: true,
           },
         });
 
