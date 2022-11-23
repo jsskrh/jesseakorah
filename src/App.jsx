@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./App.css";
+import "./styles/App.css";
 import { Routes, Route, useLocation } from "react-router-dom";
 import ASScroll from "@ashthornton/asscroll";
 import Home from "./pages/Home";
@@ -26,21 +26,12 @@ function App() {
   useEffect(() => {
     let asscroll = new ASScroll({ disableRaf: true });
 
-    if (page === "projects") {
+    if (appRef.current.querySelector(".asscroll")) {
       asscroll.enable({
-        newScrollElements: projectsRef.current,
-        // reset: true,
-      });
-    } else if (page === "about") {
-      asscroll.enable({
-        newScrollElements: aboutRef.current,
+        newScrollElements: appRef.current.querySelector(".asscroll"),
         // reset: true,
       });
     }
-
-    // newScrollElements: appRef.current.querySelectorAll(".asscroll"),
-
-    // console.log(appRef.current.querySelectorAll(".asscroll"));
 
     const scrollSetter = () => {
       return setCurrentPos(asscroll.currentPos);

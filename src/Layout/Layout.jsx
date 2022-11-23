@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Cursor from "../components/Cursor";
 import Header from "../components/Header";
-import LandingPage from "../LandingPage";
+import LandingPage from "../components/LandingPage";
 import Scene from "./Background/Scene";
 import "../styles/Layout.css";
 import Nav from "./Nav";
@@ -39,7 +39,7 @@ const Layout = ({ children, page, emailRef }) => {
       addEventListeners();
       return () => removeEventListeners();
     }
-  }, [page]);
+  }, [page, emailRef]);
 
   const colorSetter = () => {
     return color ? 0x0d0d0d : 0xe6e6e6;

@@ -36,7 +36,7 @@ function Cursor({ show, page, copied, emailRef }) {
     };
     addEventListeners();
     return () => removeEventListeners();
-  }, [page, copied]);
+  }, [page, copied, emailRef]);
 
   return (
     <div
