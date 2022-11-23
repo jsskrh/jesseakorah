@@ -24,7 +24,7 @@ function App() {
     location.pathname.slice(1) === "" ? "home" : location.pathname.slice(1);
 
   useEffect(() => {
-    let asscroll = new ASScroll({ disableRaf: true });
+    let asscroll = new ASScroll({ disableRaf: true, customScrollbar: false });
 
     if (appRef.current.querySelector(".asscroll")) {
       asscroll.enable({
