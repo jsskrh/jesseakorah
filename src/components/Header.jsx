@@ -1,5 +1,4 @@
-import gsap from "gsap";
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useRef } from "react";
 
 const Header = () => {
   const headerRef = useRef();

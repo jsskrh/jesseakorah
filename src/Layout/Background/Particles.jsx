@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import { useFrame, useLoader } from "@react-three/fiber";
-import { TextureLoader } from "three";
+// import { TextureLoader } from "three";
 
 const Particles = (props) => {
   const mesh = useRef();
-  const cross = useLoader(TextureLoader, "/images/plus.png");
+  // const cross = useLoader(TextureLoader, "/images/plus.png");
 
   const particlesCount = 5000;
   const positionArr = new Float32Array(particlesCount * 3);

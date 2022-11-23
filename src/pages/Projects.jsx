@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ListContainer from "../components/ListContainer";
 import "../styles/Projects.css";
 
