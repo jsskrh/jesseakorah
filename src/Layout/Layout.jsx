@@ -9,7 +9,7 @@ import Nav from "./Nav";
 const Layout = ({ children, page, emailRef }) => {
   const [show, setShow] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [color, setColor] = useState(true);
+  const [color, setColor] = useState(false);
 
   const backgroundRef = useRef(null);
   const pageRef = useRef(null);
