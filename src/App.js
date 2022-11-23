@@ -15,6 +15,7 @@ function App() {
   const appRef = useRef();
   const projectsRef = useRef();
   const aboutRef = useRef();
+  const emailRef = useRef();
 
   const [currentPos, setCurrentPos] = useState(0);
 
@@ -39,7 +40,7 @@ function App() {
 
     // newScrollElements: appRef.current.querySelectorAll(".asscroll"),
 
-    console.log(appRef.current.querySelectorAll(".asscroll"));
+    // console.log(appRef.current.querySelectorAll(".asscroll"));
 
     const scrollSetter = () => {
       return setCurrentPos(asscroll.currentPos);
@@ -63,7 +64,7 @@ function App() {
   return (
     <div className="app" asscroll-container="true" ref={appRef}>
       <div className="main">
-        <Layout page={page}>
+        <Layout page={page} emailRef={emailRef}>
           <Routes>
             <Route path="/*" element={<Home />} />
             <Route
@@ -73,16 +74,14 @@ function App() {
                   ref={aboutRef}
                   currentPos={currentPos}
                   setCurrentPos={setCurrentPos}
-                  getContainer={getContainer} /* containerElement={
-                    appRef.current
-                  } */
+                  getContainer={getContainer}
                 />
               }
             />
             <Route path="projects" element={<Projects ref={projectsRef} />} />
             <Route path="art" element={<Art />} />
             <Route path="info" element={<Info />} />
-            <Route path="contact" element={<Contact />} />
+            <Route path="contact" element={<Contact ref={emailRef} />} />
           </Routes>
         </Layout>
       </div>

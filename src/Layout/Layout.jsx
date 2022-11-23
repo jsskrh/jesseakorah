@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Cursor from "../components/Cursor";
 import Header from "../components/Header";
 import LandingPage from "../LandingPage";
@@ -6,16 +6,40 @@ import Scene from "./Background/Scene";
 import "../styles/Layout.css";
 import Nav from "./Nav";
 
-const Layout = ({ children, page }) => {
+const Layout = ({ children, page, emailRef }) => {
   const [show, setShow] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [color, setColor] = useState(false);
+  const [color, setColor] = useState(true);
 
   const backgroundRef = useRef(null);
   const pageRef = useRef(null);
 
-  // const emailRef = useRef(null);
-  // const email = emailRef?.current;
+  useEffect(() => {
+    if (page === "contact") {
+      const email = emailRef?.current;
+      const addEventListeners = () => {
+        email.addEventListener("mouseenter", mEnter);
+        email.addEventListener("mouseleave", mLeave);
+      };
+
+      const removeEventListeners = () => {
+        email.removeEventListener("mouseenter", mEnter);
+        email.removeEventListener("mouseleave", mLeave);
+      };
+
+      const mLeave = () => {
+        setShow(false);
+        setCopied(false);
+      };
+
+      const mEnter = () => {
+        setShow(true);
+      };
+
+      addEventListeners();
+      return () => removeEventListeners();
+    }
+  }, [page]);
 
   const colorSetter = () => {
     return color ? 0x0d0d0d : 0xe6e6e6;
@@ -24,7 +48,9 @@ const Layout = ({ children, page }) => {
   return (
     <div className={color ? "page light" : "page dark"}>
       <LandingPage />
-      {/* <Cursor show={show} page={page} copied={copied} email={email} /> */}
+      {page === "contact" && (
+        <Cursor show={show} page={page} copied={copied} emailRef={emailRef} />
+      )}
       <div className="transparent-boxes">
         <div className="box box-top"></div>
         <div className="box box-right"></div>

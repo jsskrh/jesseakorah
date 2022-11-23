@@ -1,9 +1,7 @@
 import React, { useRef } from "react";
 import "../styles/Contact.css";
 
-const Contact = () => {
-  const emailRef = useRef();
-
+const Contact = React.forwardRef((props, ref) => {
   const copyToClipboard = (text) => {
     const ta = document.createElement("textarea");
     ta.innerText = text;
@@ -21,7 +19,7 @@ const Contact = () => {
           <span
             className="bottom"
             onClick={() => copyToClipboard("jesseakorah@gmail.com")}
-            ref={emailRef}
+            ref={ref}
           >
             jesseakorah@gmail.com
           </span>
@@ -30,6 +28,6 @@ const Contact = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Contact;

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-function Cursor({ show, page, copied, email }) {
+function Cursor({ show, page, copied, emailRef }) {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [click, setClick] = useState(false);
   const [text, setText] = useState(false);
@@ -8,42 +8,35 @@ function Cursor({ show, page, copied, email }) {
   const cursorRef = useRef(null);
 
   useEffect(() => {
-    if (page === "contact") {
-      const addEventListeners = () => {
-        document.addEventListener("mousemove", mMove);
-        document.addEventListener("mousedown", mDown);
-        document.addEventListener("mouseup", mUp);
-        email.addEventListener("mouseleave", mLeave);
-      };
-
-      const removeEventListeners = () => {
-        document.removeEventListener("mousemove", mMove);
-        document.removeEventListener("mousedown", mDown);
-        document.removeEventListener("mouseup", mUp);
-        email.removeEventListener("mouseleave", mLeave);
-      };
-
-      const mDown = () => {
-        setClick(true);
-        setText(true);
-      };
-
-      const mUp = () => {
-        setClick(false);
-      };
-
-      const mLeave = () => {
-        setText(false);
-      };
-
-      const mMove = (el) => {
-        setPosition({ x: el.clientX, y: el.clientY });
-      };
-
-      addEventListeners();
-      return () => removeEventListeners();
-    }
-  }, [page, copied, email]);
+    const email = emailRef.current;
+    const addEventListeners = () => {
+      email.addEventListener("mousemove", mMove);
+      email.addEventListener("mousedown", mDown);
+      email.addEventListener("mouseup", mUp);
+      email.addEventListener("mouseleave", mLeave);
+    };
+    const removeEventListeners = () => {
+      email.removeEventListener("mousemove", mMove);
+      email.removeEventListener("mousedown", mDown);
+      email.removeEventListener("mouseup", mUp);
+      email.removeEventListener("mouseleave", mLeave);
+    };
+    const mDown = () => {
+      setClick(true);
+      setText(true);
+    };
+    const mUp = () => {
+      setClick(false);
+    };
+    const mLeave = () => {
+      setText(false);
+    };
+    const mMove = (el) => {
+      setPosition({ x: el.clientX, y: el.clientY });
+    };
+    addEventListeners();
+    return () => removeEventListeners();
+  }, [page, copied]);
 
   return (
     <div
