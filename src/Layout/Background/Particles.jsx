@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
-import { useFrame, useLoader } from "@react-three/fiber";
-// import { TextureLoader } from "three";
+import { useFrame } from "@react-three/fiber";
 
 const Particles = (props) => {
   const mesh = useRef();
