@@ -27,7 +27,7 @@ function App() {
     let asscroll = new ASScroll({
       disableRaf: true,
       customScrollbar: false,
-      touchScrollType: "transform",
+      touchScrollType: "scrollTop",
     });
 
     if (appRef.current.querySelector(".asscroll")) {

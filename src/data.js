@@ -38,6 +38,102 @@ const data = {
     { title: "Wordpress", info: "Content Management System" },
   ],
   musicList: mostListened10,
+  projectsList: {
+    develop: [
+      {
+        title: "Pokemon game",
+        year: "2022",
+        type: "Personal",
+        link: "https://pokemon-game-171122.netlify.app",
+        image: "/images/PokemonGame.png",
+        disabled: false,
+      },
+      {
+        title: "Luxury store app",
+        year: "2022",
+        type: "Personal",
+        link: "#",
+        image: "/images/LuxuryStoreApp.png",
+        disabled: true,
+      },
+      {
+        title: "Lendsqr app",
+        year: "2022",
+        type: "Personal",
+        link: "https://github.com/jsskrh/lendsqr-app",
+        image: "/images/LendsqrApp.png",
+        disabled: false,
+      },
+      {
+        title: "OpenSea clone",
+        year: "2022",
+        type: "Personal",
+        link: "#",
+        image: "/images/OpenSeaClone.png",
+        disabled: false,
+      },
+      {
+        title: "Amazon clone",
+        year: "2022",
+        type: "Personal",
+        link: "https://amazon-clone-160422.herokuapp.com",
+        image: "/images/AmazonClone.png",
+        disabled: false,
+      },
+      {
+        title: "YelpCamp",
+        year: "2020",
+        type: "Personal",
+        link: "https://yelpcamp-app-260820.herokuapp.com",
+        image: "/images/YelpCamp.png",
+        disabled: false,
+      },
+
+      {
+        title: "Museum of Candy",
+        year: "2020",
+        type: "Personal",
+        link: "https://jsskrh.github.io/museum-of-candy/",
+        image: "/images/MuseumOfCandy.png",
+        disabled: false,
+      },
+      {
+        title: "Todo List",
+        year: "2020",
+        type: "Personal",
+        link: "https://jsskrh.github.io/to-do-list/",
+        image: "/images/TodoList.png",
+        disabled: false,
+      },
+    ],
+
+    playground: [
+      {
+        title: "Floating Island Portal",
+        year: "2022",
+        type: "Personal",
+        link: "https://floating-island-portal.netlify.app/",
+        image: "/images/FloatingIslandPortal.png",
+        disabled: false,
+      },
+      {
+        title: "Patatap clone",
+        year: "2020",
+        type: "Personal",
+        link: "https://patatap-clone-jsskrh.netlify.app",
+        image: "/images/PatatapClone.png",
+        disabled: false,
+      },
+      {
+        title: "Color Matching Game",
+        year: "2020",
+        type: "Personal",
+        link: "https://jsskrh.github.io/color-matching-game/",
+        image: "/images/ColorMatchingGame.png",
+        disabled: false,
+      },
+    ],
+  },
 };
 
 export default data;
