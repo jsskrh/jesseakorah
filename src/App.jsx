@@ -27,6 +27,7 @@ function App() {
     let asscroll = new ASScroll({
       disableRaf: true,
       customScrollbar: false,
+      disableOnTouch: false,
       touchScrollType: "scrollTop",
     });
 
